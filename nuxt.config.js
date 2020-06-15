@@ -59,31 +59,7 @@ export default {
           logout: { url: '/logout', method: 'post' },
           user: false
         },
-        // tokenRequired: true,
-        // tokenType: 'bearer',
-        // globalToken: true,
         autoFetchUser: false
-      },
-      'laravel.passport': {
-        url: 'http://cms.test/api/v1',
-        authorization_endpoint: 'http://cms.test/api/v1/redirect',
-        token_endpoint: 'http://cms.test/api/v1/callback',
-        client_id: 2,
-        client_secret: 'MCWNzOe4iuixLFzY2GtLLHzYBojccSrZpuuLxDep',
-      },
-      social: {
-        _scheme: 'oauth2',
-        authorization_endpoint: 'http://cms.test/api/v1/redirect',
-        userinfo_endpoint: 'http://cms.test/api/v1/user',
-        scope: '*',
-        access_type: undefined,
-        access_token_endpoint: 'http://cms.test/api/v1/callback',
-        response_type: 'token',
-        token_type: 'Bearer',
-        redirect_uri: 'http://localhost:3000/',
-        client_id: '2',
-        token_key: 'access_token',
-        state: '6cbtiwFuvebnq4miDOjxP3MaBEnQ7nSDrqLrFlGv'
       }
     }
   },
