@@ -1,18 +1,16 @@
 <template>
   <div>
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-      <a href="">
-        <div class="w-auto h-16 mx-auto text-gray-600"/>
-      </a>
-      <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
+      <h1 class="text-4xl text-center mt-6">CMS</h1>
+      <h2 class="text-3xl text-center text-gray-900 leading-9">
         Sign in to your account
       </h2>
       <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
         Or
-        <a href="/register"
-           class="font-medium text-gray-600 hover:text-gray-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+        <nuxt-link to="/register"
+                   class="font-medium text-gray-600 hover:text-gray-500 focus:outline-none focus:underline transition ease-in-out duration-150">
           create a new account
-        </a>
+        </nuxt-link>
       </p>
     </div>
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -31,7 +29,7 @@
                      autofocus
                      class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('email') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red @enderror"/>
             </div>
-            <p class="mt-2 text-sm text-red-600"></p>
+
           </div>
           <div class="mt-6">
             <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
@@ -79,26 +77,17 @@
 <script>
   export default {
     auth: 'false',
-    components: {},
-    data () {
+    data() {
       return {
+        submitted: false,
         username: null,
         password: null,
         remember: false
       }
     },
     methods: {
-      user () {
-        return new Promise((resolve, reject) => {
-          this.$axios.$get('/user').then(response => {
-            this.$auth.setUser(response)
-            console.log(response)
-          }).catch(onerror => {
-            console.log(onerror)
-          })
-        })
-      },
-      async login () {
+      async login() {
+        this.submitted = false
         try {
           let response = await this.$auth.loginWith('local', {
             data: {
@@ -108,11 +97,21 @@
               password: this.password
             }
           })
-          await this.user()
-        }
-        catch (err) {
+          await this.getUser()
+          this.submitted = true
+        } catch (err) {
           console.log(err)
         }
+      },
+      getUser() {
+        return new Promise((resolve, reject) => {
+          this.$axios.$get('/user').then(response => {
+            this.$auth.setUser(response)
+            console.log(response)
+          }).catch(onerror => {
+            console.log(onerror)
+          })
+        })
       }
     }
   }

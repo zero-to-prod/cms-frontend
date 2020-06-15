@@ -1,18 +1,16 @@
 <template>
   <div>
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-      <a href="">
-        <div class="w-auto h-16 mx-auto text-gray-600"/>
-      </a>
-      <h2 class="mt-6 text-3xl font-extrabold text-center text-gray-900 leading-9">
+      <h1 class="text-4xl text-center mt-6">CMS</h1>
+      <h2 class="text-3xl text-center text-gray-900 leading-9">
         Create a new account
       </h2>
       <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
         Or
-        <a href="/login"
+        <nuxt-link to="/login"
            class="font-medium text-gray-600 hover:text-gray-500 focus:outline-none focus:underline transition ease-in-out duration-150">
           sign in to your account
-        </a>
+        </nuxt-link>
       </p>
     </div>
     <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">

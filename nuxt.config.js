@@ -69,7 +69,7 @@ export default {
         authorization_endpoint: 'http://cms.test/api/v1/redirect',
         token_endpoint: 'http://cms.test/api/v1/callback',
         client_id: 2,
-        client_secret: '6cbtiwFuvebnq4miDOjxP3MaBEnQ7nSDrqLrFlGv',
+        client_secret: 'MCWNzOe4iuixLFzY2GtLLHzYBojccSrZpuuLxDep',
       },
       social: {
         _scheme: 'oauth2',
