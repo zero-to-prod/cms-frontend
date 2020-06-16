@@ -1,5 +1,8 @@
 
 export default {
+    env: {
+        apiUrl: process.env.API_URL
+    },
   mode: 'universal',
   /*
   ** Headers of the page
@@ -68,7 +71,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    baseURL: 'http://cms.test/api/v1'
+    // baseURL: process.env.API_URL
   },
   /*
   ** Build configuration
