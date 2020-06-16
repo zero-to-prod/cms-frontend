@@ -2,8 +2,8 @@ require('dotenv').config()
 export default {
   mode: process.env.APP_MODE,
   loadingIndicator: {
-    name: process.env.LOADING_INDICATOR__NAME,
-    color: process.env.LOADING_INDICATOR__COLOR,
+    name: process.env.LOADING_INDICATOR_NAME,
+    color: process.env.LOADING_INDICATOR_COLOR,
     background: process.env.LOADING_INDICATOR_BACKGROUND
   },
   /*
