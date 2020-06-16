@@ -24,8 +24,8 @@ export default {
   ** Customize the progress-bar color
   */
   loading: {
-    color: process.env.APP_COLOR_PRIMARY,
-    height: '4px'
+    color: process.env.PROGRESS_BAR_COLOR,
+    height: process.env.PROGRESS_BAR_HEIGHT
   },
   /*
   ** Global CSS
