@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-      <h1 class="text-4xl text-center mt-6">CMS</h1>
+      <h1 class="text-4xl text-center mt-6" v-html="app_name"></h1>
       <h2 class="text-3xl text-center text-gray-900 leading-9">
         Sign in to your account
       </h2>
@@ -85,12 +85,10 @@
         remember: false
       }
     },
-    mounted () {
-      this.$nextTick(() => {
-        this.$nuxt.$loading.start()
-
-        setTimeout(() => this.$nuxt.$loading.finish(), 500)
-      })
+    computed:{
+      app_name() {
+        return process.env.APP_NAME;
+      }
     },
     methods: {
       async login() {

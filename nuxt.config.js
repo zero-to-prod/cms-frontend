@@ -1,6 +1,11 @@
 require('dotenv').config()
 export default {
-  mode: 'universal',
+  mode: 'spa',
+  loadingIndicator: {
+    name: process.env.LOADING_INDICATOR__NAME,
+    color: process.env.LOADING_INDICATOR__COLOR,
+    background: process.env.LOADING_INDICATOR_BACKGROUND
+  },
   /*
   ** Headers of the page
   */
@@ -19,7 +24,7 @@ export default {
   ** Customize the progress-bar color
   */
   loading: {
-    color: '#6699CC',
+    color: process.env.APP_COLOR_PRIMARY,
     height: '4px'
   },
   /*
