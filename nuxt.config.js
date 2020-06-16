@@ -1,8 +1,5 @@
-
+require('dotenv').config()
 export default {
-    env: {
-        apiUrl: process.env.API_URL
-    },
   mode: 'universal',
   /*
   ** Headers of the page
@@ -21,7 +18,10 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: {
+    color: '#6699CC',
+    height: '4px'
+  },
   /*
   ** Global CSS
   */
@@ -71,7 +71,9 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    // baseURL: process.env.API_URL
+    baseURL: process.env.API_URL,
+    apiURL: process.env.API_URL,
+    progress: true
   },
   /*
   ** Build configuration

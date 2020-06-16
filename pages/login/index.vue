@@ -85,10 +85,18 @@
         remember: false
       }
     },
+    mounted () {
+      this.$nextTick(() => {
+        this.$nuxt.$loading.start()
+
+        setTimeout(() => this.$nuxt.$loading.finish(), 500)
+      })
+    },
     methods: {
       async login() {
         this.submitted = false
         try {
+          this.$nuxt.$loading.start()
           let response = await this.$auth.loginWith('local', {
             data: {
               client_id: process.env.OAUTH_CLIENT_ID,
@@ -98,6 +106,7 @@
             }
           })
           await this.getUser()
+          this.$nuxt.$loading.finish()
           this.submitted = true
         } catch (err) {
           console.log(err)
