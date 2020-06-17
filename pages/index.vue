@@ -1,25 +1,21 @@
 <template>
-  <div class="container">
-    <div v-if="$auth.loggedIn">
-      <button v-on:click="$auth.logout()">Logout</button>
+    <div>
+        <NavbarTop/>
     </div>
-    <div v-else>
-      <a href="/login">Login</a>
-    </div>
-  </div>
 </template>
-
 <script>
+  import NavbarTop from '~/components/Navbars/NavbarTop'
 
-export default {
-  auth: 'false',
-  components: {},
-  data () {
-    return {}
-  },
-  methods: {}
-}
+  export default {
+    layout: 'basic',
+    auth: 'guest',
+    components: {
+      NavbarTop
+    },
+    data () {
+      return {}
+    },
+    methods: {}
+  }
 </script>
-
-<style>
-</style>
+<style></style>

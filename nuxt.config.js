@@ -14,7 +14,11 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      {
+        hid: 'description',
+        name: 'description',
+        content: process.env.npm_package_description || ''
+      }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -30,19 +34,17 @@ export default {
   /*
   ** Global CSS
   */
-  css: [
-  ],
+  css: [],
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [
-  ],
+  plugins: ['~/plugins/routes'],
   /*
   ** Nuxt.js dev-modules
   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss',
+    '@nuxtjs/tailwindcss'
   ],
   /*
   ** Nuxt.js modules
@@ -63,7 +65,11 @@ export default {
     strategies: {
       local: {
         endpoints: {
-          login: { url: '/login', method: 'post', propertyName: 'access_token' },
+          login: {
+            url: '/login',
+            method: 'post',
+            propertyName: 'access_token'
+          },
           logout: { url: '/logout', method: 'post' },
           user: false
         },

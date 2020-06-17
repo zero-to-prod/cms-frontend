@@ -1,25 +1,13 @@
 <template>
     <div>
-        <NavbarTop/>
-        <div class="flex">
-            <NavbarLeft/>
-            <nuxt/>
-        </div>
+        <nuxt/>
     </div>
-
 </template>
 <script>
-  import NavbarLeft from '~/components/Navbars/NavbarLeft'
-  import NavbarTop from '~/components/Navbars/NavbarTop'
-
   export default {
-    components: {
-      NavbarLeft,
-      NavbarTop
-    },
     data () {
       return {
-        title: process.env.APP_TITLE
+        title: process.env.APP_TITLE + '| Login'
       }
     },
     head () {
