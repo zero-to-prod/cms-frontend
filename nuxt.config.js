@@ -2,9 +2,9 @@ require('dotenv').config()
 export default {
   mode: process.env.APP_MODE,
   loadingIndicator: {
-    name: process.env.LOADING_INDICATOR_NAME,
-    color: process.env.LOADING_INDICATOR_COLOR,
-    background: process.env.LOADING_INDICATOR_BACKGROUND
+    name: process.env.PAGE_LOADING_INDICATOR_NAME,
+    color: process.env.PAGE_LOADING_INDICATOR_COLOR,
+    background: process.env.PAGE_LOADING_INDICATOR_BACKGROUND
   },
   /*
   ** Headers of the page
@@ -34,11 +34,18 @@ export default {
   /*
   ** Global CSS
   */
-  css: [],
+  css: [
+    '~/assets/css/spinkit.min.css'
+  ],
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['~/plugins/routes'],
+  plugins: [
+    '~/plugins/routes',
+    '~/plugins/authentication',
+    '~/plugins/env',
+    '~/plugins/globalComponents'
+  ],
   /*
   ** Nuxt.js dev-modules
   */

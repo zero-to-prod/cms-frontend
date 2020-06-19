@@ -63,7 +63,7 @@
           </div>
           <div class="mt-6">
             <span class="block w-full rounded-md shadow-sm">
-              <button type="submit" v-on:click="login()"
+              <button type="submit" v-on:click="login(username, password)"
                       class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-gray-600 border border-transparent rounded-md hover:bg-gray-500 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 transition duration-150 ease-in-out">
                 Sign in
               </button>
@@ -76,6 +76,7 @@
 </template>
 <script>
   export default {
+    name: 'Login',
     layout: 'basic',
     auth: 'false',
     data() {
@@ -92,35 +93,7 @@
       }
     },
     methods: {
-      async login() {
-        this.submitted = false
-        try {
-          this.$nuxt.$loading.start()
-          let response = await this.$auth.loginWith('local', {
-            data: {
-              client_id: process.env.OAUTH_CLIENT_ID,
-              client_secret: process.env.OAUTH_CLIENT_SECRET,
-              username: this.username,
-              password: this.password
-            }
-          })
-          await this.getUser()
-          this.$nuxt.$loading.finish()
-          this.submitted = true
-        } catch (err) {
-          console.log(err)
-        }
-      },
-      getUser() {
-        return new Promise((resolve, reject) => {
-          this.$axios.$get('/user').then(response => {
-            this.$auth.setUser(response)
-            console.log(response)
-          }).catch(onerror => {
-            console.log(onerror)
-          })
-        })
-      }
+
     }
   }
 </script>

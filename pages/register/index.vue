@@ -84,6 +84,7 @@
 </template>
 <script>
   export default {
+    name: 'Register',
     auth: 'guest',
     components: {},
     data () {

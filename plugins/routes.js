@@ -11,12 +11,6 @@ Vue.mixin({
     route_login(){
       return '/login'
     },
-    route_order() {
-      return '/order';
-    },
-    route_subscriptions() {
-      return '/subscriptions';
-    },
     route_products() {
       return '/products';
     }

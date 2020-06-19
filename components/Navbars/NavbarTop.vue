@@ -7,7 +7,7 @@
                     <nuxt-link :to="route_dashboard">Dashboard</nuxt-link>
                 </div>
                 <div v-if="$auth.loggedIn">
-                    <button v-on:click="$auth.logout()">Logout</button>
+                    <button v-on:click="logout()">Logout</button>
                 </div>
                 <div v-else>
                     <nuxt-link :to="route_login">Login</nuxt-link>
