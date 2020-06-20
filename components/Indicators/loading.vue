@@ -1,37 +1,18 @@
 <template>
-    <div v-if="LOADING_INDICATOR_ON === 'true'">
-        <skPlane v-if="LOADING_INDICATOR === 'sk-plane'"></skPlane>
-        <skChase v-else-if="LOADING_INDICATOR === 'sk-chase'"></skChase>
-        <skBounce v-else-if="LOADING_INDICATOR === 'sk-bounce'"></skBounce>
-        <skWave v-else-if="LOADING_INDICATOR === 'sk-wave'"></skWave>
-        <skPulse v-else-if="LOADING_INDICATOR === 'sk-pulse'"></skPulse>
-        <skFlow v-else-if="LOADING_INDICATOR === 'sk-flow'"></skFlow>
-        <skSwing v-else-if="LOADING_INDICATOR === 'sk-swing'"></skSwing>
-        <skCircle v-else-if="LOADING_INDICATOR === 'sk-circle'"></skCircle>
-        <skCircleFade v-else-if="LOADING_INDICATOR === 'sk-circle-fade'"></skCircleFade>
-        <div v-else-if="LOADING_INDICATOR === 'sk-grid'" class="sk-grid">
-            <div class="sk-grid-cube"></div>
-            <div class="sk-grid-cube"></div>
-            <div class="sk-grid-cube"></div>
-            <div class="sk-grid-cube"></div>
-            <div class="sk-grid-cube"></div>
-            <div class="sk-grid-cube"></div>
-            <div class="sk-grid-cube"></div>
-            <div class="sk-grid-cube"></div>
-            <div class="sk-grid-cube"></div>
-        </div>
-        <div v-else-if="LOADING_INDICATOR === 'sk-fold'" class="sk-fold">
-            <div class="sk-fold-cube"></div>
-            <div class="sk-fold-cube"></div>
-            <div class="sk-fold-cube"></div>
-            <div class="sk-fold-cube"></div>
-        </div>
-        <div v-else-if="LOADING_INDICATOR === 'sk-wander'" class="sk-wander">
-            <div class="sk-wander-cube"></div>
-            <div class="sk-wander-cube"></div>
-            <div class="sk-wander-cube"></div>
-        </div>
-    </div>
+  <div v-if="LOADING_INDICATOR_ON !== 'false'">
+    <sk-plane v-if="LOADING_INDICATOR === 'sk-plane'"></sk-plane>
+    <sk-chase v-else-if="LOADING_INDICATOR === 'sk-chase'"></sk-chase>
+    <sk-bounce v-else-if="LOADING_INDICATOR === 'sk-bounce'"></sk-bounce>
+    <sk-wave v-else-if="LOADING_INDICATOR === 'sk-wave'"></sk-wave>
+    <sk-pulse v-else-if="LOADING_INDICATOR === 'sk-pulse'"></sk-pulse>
+    <sk-flow v-else-if="LOADING_INDICATOR === 'sk-flow'"></sk-flow>
+    <sk-swing v-else-if="LOADING_INDICATOR === 'sk-swing'"></sk-swing>
+    <sk-circle v-else-if="LOADING_INDICATOR === 'sk-circle'"></sk-circle>
+    <sk-circle-fade v-else-if="LOADING_INDICATOR === 'sk-circle-fade'"></sk-circle-fade>
+    <sk-grid v-else-if="LOADING_INDICATOR === 'sk-grid'"></sk-grid>
+    <sk-fold v-else-if="LOADING_INDICATOR === 'sk-fold'"></sk-fold>
+    <sk-wander v-else-if="LOADING_INDICATOR === 'sk-wander'"></sk-wander>
+  </div>
 </template>
 <script>
   import skPlane from '~/components/Indicators/indicators/skPlane'
@@ -43,6 +24,9 @@
   import skSwing from '~/components/Indicators/indicators/skSwing'
   import skCircle from '~/components/Indicators/indicators/skCircle'
   import skCircleFade from '~/components/Indicators/indicators/skCircleFade'
+  import skGrid from "~/components/Indicators/indicators/skGrid"
+  import skFold from "~/components/Indicators/indicators/skFold"
+  import skWander from "~/components/Indicators/indicators/skWander"
 
   export default {
     name: 'indicatorLoading',
@@ -55,7 +39,10 @@
       skFlow,
       skSwing,
       skCircle,
-      skCircleFade
+      skCircleFade,
+      skGrid,
+      skFold,
+      skWander
     }
   }
 </script>
