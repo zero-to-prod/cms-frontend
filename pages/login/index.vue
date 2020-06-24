@@ -79,6 +79,7 @@
     name: 'Login',
     layout: 'basic',
     auth: 'guest',
+    serverCacheKey: 'login',
     data() {
       return {
         submitted: false,

@@ -87,6 +87,7 @@
     name: 'Register',
     layout: 'basic',
     auth: 'guest',
+    serverCacheKey: 'register',
     components: {},
     data () {
       return {
