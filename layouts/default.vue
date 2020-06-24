@@ -26,9 +26,9 @@
       return {
         title: process.env.APP_TITLE,
         meta: [
-          { 'http-equiv': 'pragma', content: 'no-cache' },
-          { 'http-equiv': 'cache-control', content: 'max-age=31536000' },
-          { 'http-equiv': 'expires', content: '0' }
+          { 'http-equiv': 'pragma', content: process.env.CACHE_PRAGMA },
+          { 'http-equiv': 'cache-control', content: process.env.CACHE_CONTROL },
+          { 'http-equiv': 'expires', content: process.env.CACHE_EXPIRES }
         ]
       }
     }
