@@ -5,10 +5,10 @@
       <h2 class="text-3xl text-center text-gray-900 leading-9">
         Sign in to your account
       </h2>
-      <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
+      <p class="mt-2 text-sm text-center text-gray-800 leading-5 max-w">
         Or
         <nuxt-link to="/register"
-                   class="font-medium text-gray-600 hover:text-gray-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                   class="font-medium text-gray-800 hover:text-gray-700 focus:outline-none focus:underline transition ease-in-out duration-150">
           create a new account
         </nuxt-link>
       </p>
@@ -17,7 +17,7 @@
       <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
         <form v-on:submit.prevent>
           <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 leading-5">
+            <label for="email" class="block text-sm font-medium text-gray-800 leading-5">
               Email address
             </label>
             <div class="mt-1 rounded-md shadow-sm">
@@ -32,7 +32,7 @@
 
           </div>
           <div class="mt-6">
-            <label for="password" class="block text-sm font-medium text-gray-700 leading-5">
+            <label for="password" class="block text-sm font-medium text-gray-800 leading-5">
               Password
             </label>
             <div class="mt-1 rounded-md shadow-sm">
@@ -56,7 +56,7 @@
             </div>
             <div class="text-sm leading-5">
               <a href=""
-                 class="font-medium text-gray-600 hover:text-gray-500 focus:outline-none focus:underline transition ease-in-out duration-150">
+                 class="font-medium text-gray-800 hover:text-gray-700 focus:outline-none focus:underline transition ease-in-out duration-150">
                 Forgot your password?
               </a>
             </div>
@@ -64,7 +64,7 @@
           <div class="mt-6">
             <span class="block w-full rounded-md shadow-sm">
               <button type="submit" v-on:click="login(username, password)"
-                      class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-gray-600 border border-transparent rounded-md hover:bg-gray-500 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 transition duration-150 ease-in-out">
+                      class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-gray-800 border border-transparent rounded-md hover:bg-gray-700 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 transition duration-150 ease-in-out">
                 Sign in
               </button>
             </span>
