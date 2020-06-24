@@ -89,6 +89,9 @@
     auth: 'guest',
     serverCacheKey: 'register',
     components: {},
+    render (h) {
+      return h('div', 'register')
+    },
     data () {
       return {
         has_not_registered: true,
