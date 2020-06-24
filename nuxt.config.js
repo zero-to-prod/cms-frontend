@@ -60,6 +60,8 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+    // https://github.com/nuxt-community/modules/tree/master/packages/component-cache
+    ['@nuxtjs/component-cache', { maxAge: 1000 * 60 * 60 }],
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
