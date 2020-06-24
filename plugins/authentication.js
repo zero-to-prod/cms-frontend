@@ -3,7 +3,6 @@ import Vue from 'vue'
 Vue.mixin({
   methods: {
     async login (username, password) {
-      this.$store.submit(true)
       try {
         this.$nuxt.$loading.start()
         let response = await this.$auth.loginWith('local', {
@@ -16,11 +15,9 @@ Vue.mixin({
         })
         await this.getUser()
         this.$nuxt.$loading.finish()
-        this.$store.submit(false)
       }
       catch (err) {
         console.log(err)
-        this.$store.submit(false)
       }
     },
     logout () {

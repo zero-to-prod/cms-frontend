@@ -85,6 +85,7 @@
 <script>
   export default {
     name: 'Register',
+    layout: 'basic',
     auth: 'guest',
     components: {},
     data () {
@@ -114,7 +115,7 @@
           }).then(response => {
             this.has_not_registered = false
             this.$nuxt.$loading.finish()
-            // this.$router.push({ path: 'login' })
+            this.$router.push({ path: 'login' })
           }).catch(onerror => {
             console.log(onerror)
           })

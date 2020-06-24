@@ -78,7 +78,7 @@
   export default {
     name: 'Login',
     layout: 'basic',
-    auth: 'false',
+    auth: 'guest',
     data() {
       return {
         submitted: false,
