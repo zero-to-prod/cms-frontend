@@ -79,10 +79,6 @@
     name: 'Login',
     layout: 'basic',
     auth: 'guest',
-    serverCacheKey: 'login',
-    render (h) {
-      return h('div', 'login')
-    },
     data() {
       return {
         submitted: false,
