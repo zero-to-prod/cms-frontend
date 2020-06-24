@@ -26,8 +26,9 @@
       return {
         title: process.env.APP_TITLE,
         meta: [
-          // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-          // { hid: 'description', name: 'description', content: 'My custom description' }
+          { 'http-equiv': 'pragma', content: 'no-cache' },
+          { 'http-equiv': 'cache-control', content: 'max-age=31536000' },
+          { 'http-equiv': 'expires', content: '0' }
         ]
       }
     }
