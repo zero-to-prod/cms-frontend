@@ -9,7 +9,7 @@ Vue.mixin({
       return '/dashboard';
     },
     route_login(){
-      return '/login'
+      return '/login/'
     },
     route_products() {
       return '/products';
