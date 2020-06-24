@@ -107,6 +107,7 @@ export default {
     */
     extractCSS: false,
     extend (config, ctx) {
-    }
+    },
+    cache: true
   }
 }
