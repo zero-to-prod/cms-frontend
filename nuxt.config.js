@@ -18,7 +18,10 @@ export default {
         hid: 'description',
         name: 'description',
         content: process.env.npm_package_description || ''
-      }
+      },
+      { 'http-equiv': 'pragma', content: process.env.CACHE_PRAGMA },
+      { 'http-equiv': 'cache-control', content: process.env.CACHE_CONTROL },
+      { 'http-equiv': 'expires', content: process.env.CACHE_EXPIRES }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
