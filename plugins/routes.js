@@ -6,13 +6,13 @@ Vue.mixin({
       return '/';
     },
     route_dashboard() {
-      return '/dashboard';
+      return '/dashboard/';
     },
     route_login(){
       return '/login/'
     },
     route_products() {
-      return '/products';
+      return '/products/';
     }
   }
 });
