@@ -106,5 +106,17 @@ export default {
     extractCSS: false,
     extend (config, ctx) {
     }
+  },
+  workbox: {
+    runtimeCaching: [
+      {
+        // Should be a regex string. Compiles into new RegExp('https://my-cdn.com/.*')
+        // urlPattern: 'https://my-cdn.com/.*',
+        // Defaults to `networkFirst` if omitted
+        handler: 'staleWhileRevalidate',
+        // Defaults to `GET` if omitted
+        // method: 'GET'
+      }
+    ]
   }
 }
