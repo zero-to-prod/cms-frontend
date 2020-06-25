@@ -6,7 +6,6 @@
             <nuxt/>
         </div>
     </div>
-
 </template>
 <script>
   import NavbarLeft from '~/components/Navbars/NavbarLeft'
