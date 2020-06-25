@@ -1,7 +1,7 @@
 {
   "name": "cms-frontend",
   "version": "1.0.0",
-  "description": "A frond end application for a cms",
+  "description": "A generalized front end application for a Content Management System",
   "author": "David Smith",
   "private": true,
   "scripts": {
