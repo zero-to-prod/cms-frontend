@@ -61,7 +61,12 @@
                         </div>
                     </div>
                     <div class="mt-6">
-                        <simple-button @click.native="login(username, password)">Sign in</simple-button>
+                        <simple-button :disabled="submit" @click.native="login(username, password)">
+                            <div v-if="!submit">
+                                Sign in
+                            </div>
+                            <loading v-if="submit"></loading>
+                        </simple-button>
                     </div>
                 </form>
             </div>
@@ -75,7 +80,7 @@
     auth: 'guest',
     data () {
       return {
-        submitted: false,
+        submit: false,
         username: null,
         password: null,
         remember: false

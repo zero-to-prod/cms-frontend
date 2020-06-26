@@ -7,8 +7,8 @@
     --color-text-primary: black;
     --color-text-secondary: white;
     /* Button */
-    --color-button-primary: #2D3748;
-    --color-button-primary-hover: white;
+    --color-button-primary: white;
+    --color-button-primary-hover: #2D3748;
 
     --color-button-secondary: #EDF2F7;
     --color-button-secondary-hover: #2D3748;
