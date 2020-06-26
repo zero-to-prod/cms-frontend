@@ -1,10 +1,8 @@
 <template>
     <div>
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
-            <h1 class="text-4xl text-center mt-6" v-html="APP_NAME"></h1>
-            <h2 class="text-3xl text-center text-gray-900 leading-9">
-                Sign in to your account
-            </h2>
+            <h3 class="text-center mt-6" v-html="APP_NAME"></h3>
+            <h4 class="text-center leading-9"> Sign in to your account</h4>
             <p class="mt-2 text-sm text-center text-gray-800 leading-5 max-w">
                 Or
                 <nuxt-link to="/register"

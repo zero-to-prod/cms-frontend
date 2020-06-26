@@ -8,9 +8,6 @@ Vue.mixin({
     APP_TITLE () {
       return process.env.APP_TITLE
     },
-    APP_COLOR_PRIMARY () {
-      return process.env.APP_COLOR_PRIMARY
-    },
     APP_MODE () {
       return process.env.APP_MODE
     },

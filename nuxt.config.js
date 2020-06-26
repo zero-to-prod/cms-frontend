@@ -39,8 +39,8 @@ export default {
   */
   css: [
     '~/assets/css/spinkit.min.css',
-    // '~/assets/css/theme.css',
-    '~/assets/css/dark_theme.css',
+    process.env.APP_THEME,
+    '~/assets/css/master.css',
   ],
   /*
   ** Plugins to load before mounting the App
