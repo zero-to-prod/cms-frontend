@@ -7,8 +7,8 @@
     --color-text-primary: white;
     --color-text-secondary: black;
     /* Button */
-    --color-button-primary: #CBD5E0;
-    --color-button-primary-hover: #2D3748;
+    --color-button-primary: #2D3748;
+    --color-button-primary-hover: #CBD5E0;
 
     --color-button-secondary: #EDF2F7;
     --color-button-secondary-hover: #2D3748;
@@ -25,6 +25,10 @@ h2 {
 }
 h3 {
     @apply text-lg;
+}
+
+input {
+    color: black;
 }
 
 @tailwind components;
