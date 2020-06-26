@@ -24,7 +24,10 @@
     head () {
       return {
         title: process.env.APP_TITLE,
-        meta: []
+        meta: [],
+        bodyAttrs: {
+          class: 'bg-background-primary'
+        }
       }
     }
   }

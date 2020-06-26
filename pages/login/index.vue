@@ -14,7 +14,7 @@
             </p>
         </div>
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-            <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
+            <div class="px-4 py-8 bg-white sm:rounded-lg sm:px-10">
                 <form v-on:submit.prevent>
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-800 leading-5">
@@ -61,13 +61,7 @@
                         </div>
                     </div>
                     <div class="mt-6">
-                        <span class="block w-full rounded-md shadow-sm">
-                            <button type="submit"
-                                    v-on:click="login(username, password)"
-                                    class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-gray-800 border border-transparent rounded-md hover:bg-gray-700 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 transition duration-150 ease-in-out">
-                                Sign in
-                            </button>
-                        </span>
+                        <simple-button v-on:click="login(username, password)">Sign in</simple-button>
                     </div>
                 </form>
             </div>

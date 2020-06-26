@@ -1,0 +1,31 @@
+:root {
+    --color-brand-primary: #2B6CB0;
+    --color-brand-secondary: #EBF8FF;
+    --color-background-primary: white;
+    --color-background-secondary: white;
+    /* Text */
+    --color-text-primary: black;
+    --color-text-secondary: white;
+    /* Button */
+    --color-button-primary: #2D3748;
+    --color-button-primary-hover: #CBD5E0;
+
+    --color-button-secondary: #EDF2F7;
+    --color-button-secondary-hover: #2D3748;
+
+    /*color: white;*/
+}
+
+@tailwind base;
+h1 {
+    @apply text-2xl;
+}
+h2 {
+    @apply text-xl;
+}
+h3 {
+    @apply text-lg;
+}
+
+@tailwind components;
+@tailwind utilities;
