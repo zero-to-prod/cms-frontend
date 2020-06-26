@@ -69,7 +69,12 @@
                         </div>
                     </div>
                     <div class="mt-6">
-                        <simple-button @click.native="register()">Register</simple-button>
+                        <simple-button @click.native="register()">
+                            <div v-if="!submit">
+                                Register
+                            </div>
+                            <loading v-if="submit"></loading>
+                        </simple-button>
                     </div>
                 </form>
             </div>
@@ -84,6 +89,7 @@
     components: {},
     data () {
       return {
+        submit: false,
         has_not_registered: true,
         name: null,
         username: null,
