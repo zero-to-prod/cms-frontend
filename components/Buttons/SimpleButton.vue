@@ -1,5 +1,5 @@
 <template>
-    <button :type="submit" :class="component_class">
+    <button :type="type" :class="component_class">
         <slot></slot>
     </button>
 </template>

@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     <div class="mt-6">
-                        <simple-button v-on:click="login(username, password)">Sign in</simple-button>
+                        <simple-button @click.native="login(username, password)">Sign in</simple-button>
                     </div>
                 </form>
             </div>

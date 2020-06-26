@@ -69,7 +69,7 @@
                         </div>
                     </div>
                     <div class="mt-6">
-                        <simple-button v-on:click="register()">Register</simple-button>
+                        <simple-button @click.native="register()">Register</simple-button>
                     </div>
                 </form>
             </div>
