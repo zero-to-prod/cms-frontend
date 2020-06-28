@@ -1,12 +1,11 @@
 <template>
     <div>
-        <navbar-top/>
+        <NavbarTop/>
         <div class="flex">
-            <navbar-left/>
+            <NavbarLeft/>
             <nuxt/>
         </div>
     </div>
-
 </template>
 <script>
   import NavbarLeft from '~/components/Navbars/NavbarLeft'
@@ -19,15 +18,16 @@
     },
     data () {
       return {
+        title: process.env.APP_TITLE
       }
     },
     head () {
       return {
-        title: this.APP_NAME + this.$route.path,
-        meta: [
-          // hid is used as unique identifier. Do not use `vmid` for it as it will not work
-          // { hid: 'description', name: 'description', content: 'My custom description' }
-        ]
+        title: process.env.APP_TITLE,
+        meta: [],
+        bodyAttrs: {
+          class: 'bg-background-primary'
+        }
       }
     }
   }

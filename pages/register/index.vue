@@ -1,10 +1,8 @@
 <template>
     <div>
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
-            <h1 class="text-4xl text-center mt-6" v-html="app_name"></h1>
-            <h2 class="text-3xl text-center text-gray-900 leading-9">
-                Create a new account
-            </h2>
+            <h3 class="text-center mt-6" v-html="app_name"></h3>
+            <h4 class="text-center leading-9"> Create a new account</h4>
             <p class="mt-2 text-sm text-center text-gray-600 leading-5 max-w">
                 Or
                 <nuxt-link to="/login"
@@ -14,7 +12,7 @@
             </p>
         </div>
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-            <div class="px-4 py-8 bg-white shadow sm:rounded-lg sm:px-10">
+            <div class="px-4 py-8 bg-white sm:rounded-lg sm:px-10">
                 <form v-on:click.prevent v-if="has_not_registered">
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700 leading-5">
@@ -69,13 +67,12 @@
                         </div>
                     </div>
                     <div class="mt-6">
-                        <span class="block w-full rounded-md shadow-sm">
-                            <button type="submit"
-                                    v-on:click="register()"
-                                    class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-gray-600 border border-transparent rounded-md hover:bg-gray-500 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 transition duration-150 ease-in-out">
+                        <simple-button @click.native="register()">
+                            <div v-if="!submit">
                                 Register
-                            </button>
-                        </span>
+                            </div>
+                            <loading v-if="submit"></loading>
+                        </simple-button>
                     </div>
                 </form>
             </div>
@@ -90,6 +87,7 @@
     components: {},
     data () {
       return {
+        submit: false,
         has_not_registered: true,
         name: null,
         username: null,
@@ -115,7 +113,7 @@
           }).then(response => {
             this.has_not_registered = false
             this.$nuxt.$loading.finish()
-            // this.$router.push({ path: 'login' })
+            this.$router.push({ path: 'login' })
           }).catch(onerror => {
             console.log(onerror)
           })

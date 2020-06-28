@@ -8,9 +8,6 @@ Vue.mixin({
     APP_TITLE () {
       return process.env.APP_TITLE
     },
-    APP_COLOR_PRIMARY () {
-      return process.env.APP_COLOR_PRIMARY
-    },
     APP_MODE () {
       return process.env.APP_MODE
     },
@@ -43,6 +40,15 @@ Vue.mixin({
     },
     LOADING_INDICATOR () {
       return process.env.LOADING_INDICATOR
+    },
+    CACHE_CONTROL () {
+      return process.env.CACHE_CONTROL
+    },
+    CACHE_PRAGMA () {
+      return process.env.CACHE_PRAGMA
+    },
+    CACHE_EXPIRES () {
+      return process.env.CACHE_EXPIRES
     }
   }
 })

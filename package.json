@@ -1,7 +1,7 @@
 {
   "name": "cms-frontend",
   "version": "1.0.0",
-  "description": "A frond end application for a cms",
+  "description": "A generalized front end application for a Content Management System",
   "author": "David Smith",
   "private": true,
   "scripts": {
@@ -14,9 +14,10 @@
   "dependencies": {
     "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.11.0",
+    "@nuxtjs/component-cache": "^1.1.5",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.13.0",
     "spinkit": "^2.0.1"
   },
   "devDependencies": {
@@ -27,6 +28,6 @@
     "eslint-plugin-prettier": "^3.1.4",
     "jest": "^24.1.0",
     "prettier": "1.19.1",
-    "vue-jest": "^4.0.0-0"
+    "vue-jest": "^4.0.0-beta.3"
   }
 }

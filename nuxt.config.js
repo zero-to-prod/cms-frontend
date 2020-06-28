@@ -18,7 +18,10 @@ export default {
         hid: 'description',
         name: 'description',
         content: process.env.npm_package_description || ''
-      }
+      },
+      { 'http-equiv': 'pragma', content: process.env.CACHE_PRAGMA },
+      { 'http-equiv': 'cache-control', content: process.env.CACHE_CONTROL },
+      { 'http-equiv': 'expires', content: process.env.CACHE_EXPIRES }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -35,7 +38,9 @@ export default {
   ** Global CSS
   */
   css: [
-    '~/assets/css/spinkit.min.css'
+    '~/assets/css/spinkit.min.css',
+    process.env.APP_THEME,
+    '~/assets/css/master.css',
   ],
   /*
   ** Plugins to load before mounting the App
@@ -100,8 +105,13 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extractCSS: true,
+    extractCSS: false,
     extend (config, ctx) {
+    }
+  },
+  pwa: {
+    workbox: {
+      clientsClaim: false
     }
   }
 }
