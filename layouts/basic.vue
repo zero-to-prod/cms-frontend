@@ -7,12 +7,11 @@
   export default {
     data () {
       return {
-        title: process.env.APP_TITLE + '| Login'
       }
     },
     head () {
       return {
-        title: process.env.APP_TITLE,
+        title: this.APP_TITLE + this.$route.path,
         meta: [
           // hid is used as unique identifier. Do not use `vmid` for it as it will not work
           // { hid: 'description', name: 'description', content: 'My custom description' }

@@ -85,6 +85,7 @@
 <script>
   export default {
     name: 'Register',
+    layout: 'basic',
     auth: 'guest',
     components: {},
     data () {

@@ -3,7 +3,7 @@ export const state = () => ({
 })
 
 export const mutations = {
-  submit (state, value) {
-    state.submit = value
+  submit: (state, value) => {
+    state.submitted = value
   }
 }

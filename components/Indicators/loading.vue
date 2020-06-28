@@ -1,18 +1,17 @@
 <template>
-  <div v-if="LOADING_INDICATOR_ON !== 'false'">
-    <sk-plane v-if="LOADING_INDICATOR === 'sk-plane'"></sk-plane>
-    <sk-chase v-else-if="LOADING_INDICATOR === 'sk-chase'"></sk-chase>
-    <sk-bounce v-else-if="LOADING_INDICATOR === 'sk-bounce'"></sk-bounce>
-    <sk-wave v-else-if="LOADING_INDICATOR === 'sk-wave'"></sk-wave>
-    <sk-pulse v-else-if="LOADING_INDICATOR === 'sk-pulse'"></sk-pulse>
-    <sk-flow v-else-if="LOADING_INDICATOR === 'sk-flow'"></sk-flow>
-    <sk-swing v-else-if="LOADING_INDICATOR === 'sk-swing'"></sk-swing>
-    <sk-circle v-else-if="LOADING_INDICATOR === 'sk-circle'"></sk-circle>
-    <sk-circle-fade v-else-if="LOADING_INDICATOR === 'sk-circle-fade'"></sk-circle-fade>
-    <sk-grid v-else-if="LOADING_INDICATOR === 'sk-grid'"></sk-grid>
-    <sk-fold v-else-if="LOADING_INDICATOR === 'sk-fold'"></sk-fold>
-    <sk-wander v-else-if="LOADING_INDICATOR === 'sk-wander'"></sk-wander>
-  </div>
+  <sk-plane v-if="LOADING_INDICATOR === 'sk-plane' && LOADING_INDICATOR_ON !== 'false'"></sk-plane>
+  <sk-chase v-else-if="LOADING_INDICATOR === 'sk-chase' && LOADING_INDICATOR_ON !== 'false'"></sk-chase>
+  <sk-bounce v-else-if="LOADING_INDICATOR === 'sk-bounce' && LOADING_INDICATOR_ON !== 'false'"></sk-bounce>
+  <sk-wave v-else-if="LOADING_INDICATOR === 'sk-wave' && LOADING_INDICATOR_ON !== 'false'"></sk-wave>
+  <sk-pulse v-else-if="LOADING_INDICATOR === 'sk-pulse' && LOADING_INDICATOR_ON !== 'false'"></sk-pulse>
+  <sk-flow v-else-if="LOADING_INDICATOR === 'sk-flow' && LOADING_INDICATOR_ON !== 'false'"></sk-flow>
+  <sk-swing v-else-if="LOADING_INDICATOR === 'sk-swing' && LOADING_INDICATOR_ON !== 'false'"></sk-swing>
+  <sk-circle v-else-if="LOADING_INDICATOR === 'sk-circle' && LOADING_INDICATOR_ON !== 'false'"></sk-circle>
+  <sk-circle-fade
+    v-else-if="LOADING_INDICATOR === 'sk-circle-fade' && LOADING_INDICATOR_ON !== 'false'"></sk-circle-fade>
+  <sk-grid v-else-if="LOADING_INDICATOR === 'sk-grid' && LOADING_INDICATOR_ON !== 'false'"></sk-grid>
+  <sk-fold v-else-if="LOADING_INDICATOR === 'sk-fold' && LOADING_INDICATOR_ON !== 'false'"></sk-fold>
+  <sk-wander v-else-if="LOADING_INDICATOR === 'sk-wander' && LOADING_INDICATOR_ON !== 'false'"></sk-wander>
 </template>
 <script>
   import skPlane from '~/components/Indicators/indicators/skPlane'

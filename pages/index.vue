@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NavbarTop/>
+        <navbar-top/>
     </div>
 </template>
 <script>

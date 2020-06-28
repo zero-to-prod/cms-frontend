@@ -1,8 +1,8 @@
 <template>
     <div>
-        <NavbarTop/>
+        <navbar-top/>
         <div class="flex">
-            <NavbarLeft/>
+            <navbar-left/>
             <nuxt/>
         </div>
     </div>
@@ -19,12 +19,11 @@
     },
     data () {
       return {
-        title: process.env.APP_TITLE
       }
     },
     head () {
       return {
-        title: process.env.APP_TITLE,
+        title: this.APP_NAME + this.$route.path,
         meta: [
           // hid is used as unique identifier. Do not use `vmid` for it as it will not work
           // { hid: 'description', name: 'description', content: 'My custom description' }

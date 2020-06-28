@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="sm:mx-auto sm:w-full sm:max-w-md">
-      <h1 class="text-4xl text-center mt-6" v-html="app_name"></h1>
+      <h1 class="text-4xl text-center mt-6" v-html="APP_NAME"></h1>
       <h2 class="text-3xl text-center text-gray-900 leading-9">
         Sign in to your account
       </h2>
@@ -65,7 +65,8 @@
             <span class="block w-full rounded-md shadow-sm">
               <button type="submit" v-on:click="login(username, password)"
                       class="flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-gray-600 border border-transparent rounded-md hover:bg-gray-500 focus:outline-none focus:border-gray-700 focus:shadow-outline-gray active:bg-gray-700 transition duration-150 ease-in-out">
-                Sign in
+                <span v-if="!submitted">Sign in</span>
+                <loading v-if="submitted" style="height: 1rem; width: 1rem"/>
               </button>
             </span>
           </div>
@@ -81,20 +82,17 @@
     auth: 'false',
     data() {
       return {
-        submitted: false,
         username: null,
         password: null,
         remember: false
       }
     },
-    computed:{
-      app_name() {
-        return process.env.APP_NAME;
+    computed: {
+      submitted() {
+        return this.$nuxt.$store.submitted
       }
     },
-    methods: {
-
-    }
+    methods: {}
   }
 </script>
 <style></style>
