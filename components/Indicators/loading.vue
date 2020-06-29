@@ -7,8 +7,7 @@
   <sk-flow v-else-if="LOADING_INDICATOR === 'sk-flow' && LOADING_INDICATOR_ON !== 'false'"></sk-flow>
   <sk-swing v-else-if="LOADING_INDICATOR === 'sk-swing' && LOADING_INDICATOR_ON !== 'false'"></sk-swing>
   <sk-circle v-else-if="LOADING_INDICATOR === 'sk-circle' && LOADING_INDICATOR_ON !== 'false'"></sk-circle>
-  <sk-circle-fade
-    v-else-if="LOADING_INDICATOR === 'sk-circle-fade' && LOADING_INDICATOR_ON !== 'false'"></sk-circle-fade>
+  <sk-circle-fade v-else-if="LOADING_INDICATOR === 'sk-circle-fade' && LOADING_INDICATOR_ON !== 'false'"></sk-circle-fade>
   <sk-grid v-else-if="LOADING_INDICATOR === 'sk-grid' && LOADING_INDICATOR_ON !== 'false'"></sk-grid>
   <sk-fold v-else-if="LOADING_INDICATOR === 'sk-fold' && LOADING_INDICATOR_ON !== 'false'"></sk-fold>
   <sk-wander v-else-if="LOADING_INDICATOR === 'sk-wander' && LOADING_INDICATOR_ON !== 'false'"></sk-wander>
