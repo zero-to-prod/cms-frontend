@@ -105,9 +105,13 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extractCSS: true,
+    extractCSS: false,
     extend (config, ctx) {
     }
+  },
+  purgeCSS: {
+    whitelistPatterns: [/svg.*/],
+    purgeCSSInDev: true
   },
   pwa: {
     workbox: {
