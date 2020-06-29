@@ -22,7 +22,7 @@
     "spinkit": "^2.0.1"
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^1.0.0",
+    "@nuxtjs/tailwindcss": "^1.4.1",
     "@vue/test-utils": "^1.0.0-beta.27",
     "babel-jest": "^24.1.0",
     "eslint-config-prettier": "^6.10.0",
