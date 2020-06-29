@@ -105,13 +105,13 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extractCSS: false,
+    extractCSS: true,
     extend (config, ctx) {
     }
   },
   pwa: {
     workbox: {
-      clientsClaim: false
+      // clientsClaim: false
     }
   }
 }
