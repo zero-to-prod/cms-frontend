@@ -21,9 +21,12 @@ module.exports = {
   },
   variants: {},
   plugins: [],
-  purge: [
-    './dist/**/*.html',
-    './dist/**/*.vue',
-    './dist/**/*.jsx'
-  ]
+  purge: {
+    mode: 'all',
+    content: [
+      './dist/**/*.html',
+      './dist/**/*.vue',
+      './dist/**/*.jsx'
+    ]
+  }
 }
