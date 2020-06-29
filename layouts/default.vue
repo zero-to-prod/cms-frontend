@@ -25,9 +25,6 @@
       return {
         title: process.env.APP_TITLE,
         meta: [],
-        bodyAttrs: {
-          class: 'bg-background-primary'
-        }
       }
     }
   }

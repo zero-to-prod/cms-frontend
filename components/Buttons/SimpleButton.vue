@@ -24,9 +24,7 @@
           'py-2 ' +
           'text-sm ' +
           'font-medium ' +
-          'rounded-md ' +
-          'bg-button-primary ' +
-          'text-text-primary'
+          'rounded-md '
       }
     }
   }

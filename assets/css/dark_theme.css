@@ -42,6 +42,10 @@
 }
 
 @tailwind base;
+body {
+    background-color: var(--color-background-primary)
+}
+
 input {
     background-color: var(--color-input-background-primary);
     border: solid 1px var(--color-input-border-primary);
@@ -53,6 +57,13 @@ nav {
 
 form {
     background-color: var(--color-form-primary);
+}
+
+button{
+    background-color: var(--color-button-primary);
+}
+button:hover{
+    background-color: var(--color-button-primary-hover);
 }
 
 h1 {
