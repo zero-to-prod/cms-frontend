@@ -5,20 +5,23 @@ Vue.mixin({
     route_index() {
       return '/'
     },
-    route_users() {
-      return '/users/'
+    route_dashboard() {
+      return '/dashboard/'
     },
     route_home() {
       return '/home/'
     },
-    route_dashboard() {
-      return '/dashboard/'
+    route_indicators() {
+      return '/indicators/'
     },
     route_login() {
       return '/login/'
     },
     route_products() {
       return '/products/'
+    },
+    route_users() {
+      return '/users/'
     }
   }
 })
