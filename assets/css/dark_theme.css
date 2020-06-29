@@ -1,53 +1,83 @@
 :root {
-  /* Brand */
-  --color-brand-primary: #2B6CB0;
-  --color-brand-secondary: #EBF8FF;
+    --nav-top-height: 3rem;
+    --nav-left-width: 7rem;
 
-  /* Backgrounds */
-  --color-background-primary: #121212;
-  --color-background-secondary: white;
+    /* Brand */
+    --color-brand-primary: #2B6CB0;
+    --color-brand-secondary: #EBF8FF;
 
-  /* Navbars */
-  --color-nav-primary: black;
+    /* Backgrounds */
+    --color-background-primary: #121212;
+    --color-background-secondary: white;
 
-  /* Forms */
-  --color-form-primary: #333333;
+    /* Navbars */
+    --color-nav-primary: black;
 
-  /* Inputs */
-  --color-input-background-primary: #444444;
-  --color-input-border-primary: #585858;
+    /* Forms */
+    --color-form-primary: #333333;
 
-  /* Indicators */
-  --color-indicator-primary: white;
+    /* Inputs */
+    --color-input-background-primary: #444444;
+    --color-input-border-primary: #585858;
 
-  /* Icons */
-  --color-icon-primary: red;
+    /* Indicators */
+    --color-indicator-primary: white;
+
+    /* Icons */
+    --color-icon-primary: red;
 
 
-  /* Text */
-  --color-text-primary: white;
-  --color-text-secondary: black;
+    /* Text */
+    --color-text-primary: white;
+    --color-text-secondary: black;
 
-  /* Button */
-  --color-button-primary: #2D3748;
-  --color-button-primary-hover: white;
+    /* Button */
+    --color-button-primary: #2D3748;
+    --color-button-primary-hover: white;
 
-  --color-button-secondary: #EDF2F7;
-  --color-button-secondary-hover: #2D3748;
+    --color-button-secondary: #EDF2F7;
+    --color-button-secondary-hover: #2D3748;
 
-  color: white;
+    color: white;
 }
 
 @tailwind base;
 input {
-  background-color: var(--color-input-background-primary);
-  border: solid 1px var(--color-input-border-primary);
+    background-color: var(--color-input-background-primary);
+    border: solid 1px var(--color-input-border-primary);
 }
 
 nav {
-  background-color: var(--color-nav-primary);
+    background-color: var(--color-nav-primary);
 }
 
 form {
-  background-color: var(--color-form-primary);
+    background-color: var(--color-form-primary);
 }
+
+h1 {
+    @apply text-6xl;
+}
+
+h2 {
+    @apply text-5xl;
+}
+
+h3 {
+    @apply text-4xl;
+}
+
+h4 {
+    @apply text-3xl;
+}
+
+h5 {
+    @apply text-2xl;
+}
+
+h6 {
+    @apply text-lg;
+}
+
+@tailwind components;
+@tailwind utilities;
