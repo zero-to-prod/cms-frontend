@@ -1,9 +1,15 @@
 <template>
-    <div class="sk-plane"></div>
+  <div class="sk-plane"></div>
 </template>
 <script>
   export default {
     name: 'skPlane'
   }
 </script>
-<style scoped></style>
+<style scoped>
+  .sk-plane {
+    height: 1rem;
+    width: 1rem;
+    background-color: var(--color-indicator-primary);
+  }
+</style>

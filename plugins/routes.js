@@ -2,16 +2,22 @@ import Vue from 'vue'
 
 Vue.mixin({
   computed: {
-    route_home () {
+    route_index() {
       return '/'
     },
-    route_dashboard () {
+    route_users() {
+      return '/users/'
+    },
+    route_home() {
+      return '/home/'
+    },
+    route_dashboard() {
       return '/dashboard/'
     },
-    route_login () {
+    route_login() {
       return '/login/'
     },
-    route_products () {
+    route_products() {
       return '/products/'
     }
   }

@@ -1,8 +1,11 @@
 <template>
-    <div>
-        <NavbarTop/>
-        <h1 class="text-center">Home Page</h1>
+  <div>
+    <NavbarTop/>
+    <div class="content">
+      <h1 class="text-center">Home Page</h1>
+      <nuxt-link :to="route_dashboard">Dashboard</nuxt-link>
     </div>
+  </div>
 </template>
 <script>
   import NavbarTop from '~/components/Navbars/NavbarTop'
@@ -14,10 +17,14 @@
     components: {
       NavbarTop
     },
-    data () {
+    data() {
       return {}
     },
     methods: {}
   }
 </script>
-<style></style>
+<style scoped>
+  .content {
+    margin-top: var(--nav-top-height);
+  }
+</style>

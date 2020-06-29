@@ -1,11 +1,11 @@
 <template>
-    <div>
-        <NavbarTop/>
-        <div class="flex">
-            <NavbarLeft/>
-            <nuxt/>
-        </div>
+  <div>
+    <NavbarTop class="navbar-top"/>
+    <NavbarLeft class="navbar-left"/>
+    <div class="content">
+      <nuxt/>
     </div>
+  </div>
 </template>
 <script>
   import NavbarLeft from '~/components/Navbars/NavbarLeft'
@@ -16,12 +16,12 @@
       NavbarLeft,
       NavbarTop
     },
-    data () {
+    data() {
       return {
         title: process.env.APP_TITLE
       }
     },
-    head () {
+    head() {
       return {
         title: process.env.APP_TITLE,
         meta: [],
@@ -32,4 +32,13 @@
     }
   }
 </script>
-<style></style>
+<style scoped>
+  .navbar-top{
+    height: var(--nav-top-height);
+    padding: 0 0 0 var(--nav-left-width);
+  }
+  .content{
+    min-height: calc(100vh - (64px + 80px + (30px * 2)));
+    margin: var(--nav-top-height) 0 0 var(--nav-left-width)
+  }
+</style>

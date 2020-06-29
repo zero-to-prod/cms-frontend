@@ -1,16 +1,25 @@
 <template>
-    <div class="sk-chase">
-        <div class="sk-chase-dot"></div>
-        <div class="sk-chase-dot"></div>
-        <div class="sk-chase-dot"></div>
-        <div class="sk-chase-dot"></div>
-        <div class="sk-chase-dot"></div>
-        <div class="sk-chase-dot"></div>
-    </div>
+  <div class="sk-chase">
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+  </div>
 </template>
 <script>
   export default {
     name: 'skChase'
   }
 </script>
-<style scoped></style>
+<style scoped>
+  .sk-chase {
+    height: 1rem;
+    width: 1rem;
+  }
+
+  .sk-chase-dot::before {
+    background-color: var(--color-indicator-primary)
+  }
+</style>

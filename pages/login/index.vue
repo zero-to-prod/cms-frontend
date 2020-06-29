@@ -12,10 +12,10 @@
             </p>
         </div>
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-            <div class="px-4 py-8 bg-white sm:rounded-lg sm:px-10">
+            <div class="form-wrapper px-4 py-8 sm:rounded-lg sm:px-10">
                 <form v-on:submit.prevent>
                     <div>
-                        <label for="email" class="block text-sm font-medium text-gray-800 leading-5">
+                        <label for="email" class="block text-sm font-medium leading-5">
                             Email address
                         </label>
                         <div class="mt-1 rounded-md shadow-sm">
@@ -25,7 +25,7 @@
                                    type="email"
                                    required
                                    autofocus
-                                   class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('email') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red @enderror"/>
+                                   class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5 @error('name') border-red-300 text-red-900 placeholder-red-300 focus:border-red-300 focus:shadow-outline-red @enderror"/>
                         </div>
                     </div>
                     <div class="mt-6">

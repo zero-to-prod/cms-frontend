@@ -1,11 +1,7 @@
 <template>
-    <nav class="items-center shadow-md flex justify-around">
+    <nav class="fixed right-0 top-0 w-full">
         <div class="sm:w-full">
-            <div class="flex sm:justify-between items-center">
-                <nuxt-link :to="route_home" class="p-3">Home</nuxt-link>
-                <div v-if="$auth.loggedIn">
-                    <nuxt-link :to="route_dashboard" class="p-3">Dashboard</nuxt-link>
-                </div>
+            <div class="flex flex-row-reverse">
                 <div v-if="$auth.loggedIn">
                     <button v-on:click="logout()" class="p-3">Logout</button>
                 </div>
@@ -26,4 +22,6 @@
     watch: {}
   }
 </script>
-<style scoped></style>
+<style scoped>
+
+</style>

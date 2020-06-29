@@ -7,11 +7,18 @@
 </template>
 
 <script>
-    export default {
-        name: "skWander"
-    }
+  export default {
+    name: "skWander"
+  }
 </script>
 
 <style scoped>
+  .sk-wander {
+    height: 1rem;
+    width: 1rem;
+  }
 
+  .sk-wander-cube {
+    background-color: var(--color-indicator-primary);
+  }
 </style>

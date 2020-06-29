@@ -1,21 +1,56 @@
 :root {
-    --color-brand-primary: #2B6CB0;
-    --color-brand-secondary: #EBF8FF;
-    --color-background-primary: #2D3748;
-    --color-background-secondary: white;
-    /* Text */
-    --color-text-primary: white;
-    --color-text-secondary: black;
-    /* Button */
-    --color-button-primary: #2D3748;
-    --color-button-primary-hover: white;
+  /* Brand */
+  --color-brand-primary: #2B6CB0;
+  --color-brand-secondary: #EBF8FF;
 
-    --color-button-secondary: #EDF2F7;
-    --color-button-secondary-hover: #2D3748;
+  /* Backgrounds */
+  --color-background-primary: #121212;
+  --color-background-secondary: white;
 
-    color: white;
+  /* Navbars */
+  --color-nav-primary: black;
+
+  /* Forms */
+  --color-form-primary: #333333;
+
+  /* Inputs */
+  --color-input-background-primary: #444444;
+  --color-input-border-primary: #585858;
+
+  /* Indicators */
+  --color-indicator-primary: white;
+
+  /* Icons */
+  --color-icon-primary: red;
+
+
+  /* Text */
+  --color-text-primary: white;
+  --color-text-secondary: black;
+
+  /* Button */
+  --color-button-primary: #2D3748;
+  --color-button-primary-hover: white;
+
+  --color-button-secondary: #EDF2F7;
+  --color-button-secondary-hover: #2D3748;
+
+  color: white;
 }
 
 @tailwind base;
+input {
+  background-color: var(--color-input-background-primary);
+  border: solid 1px var(--color-input-border-primary);
+}
+
+nav {
+  background-color: var(--color-nav-primary);
+}
+
+form {
+  background-color: var(--color-form-primary);
+}
+
 @tailwind components;
 @tailwind utilities;

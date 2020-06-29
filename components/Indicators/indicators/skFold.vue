@@ -8,11 +8,18 @@
 </template>
 
 <script>
-    export default {
-        name: "skFold"
-    }
+  export default {
+    name: "skFold"
+  }
 </script>
 
 <style scoped>
+  .sk-fold {
+    height: 1rem;
+    width: 1rem;
+  }
 
+  .sk-fold-cube::before {
+    background-color: var(--color-indicator-primary);
+  }
 </style>

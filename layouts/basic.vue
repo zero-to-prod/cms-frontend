@@ -1,16 +1,16 @@
 <template>
-    <div>
-        <nuxt/>
-    </div>
+  <div>
+    <nuxt/>
+  </div>
 </template>
 <script>
   export default {
-    data () {
+    data() {
       return {
         title: process.env.APP_TITLE + '| Login'
       }
     },
-    head () {
+    head() {
       return {
         title: process.env.APP_TITLE,
         meta: [],
@@ -21,4 +21,4 @@
     }
   }
 </script>
-<style></style>
+<style scoped></style>

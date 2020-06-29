@@ -13,11 +13,18 @@
 </template>
 
 <script>
-    export default {
-        name: "skGrid"
-    }
+  export default {
+    name: "skGrid"
+  }
 </script>
 
 <style scoped>
+  .sk-grid {
+    height: 1rem;
+    width: 1rem;
+  }
 
+  .sk-grid-cube {
+    background-color: var(--color-indicator-primary);
+  }
 </style>

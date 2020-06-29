@@ -12,7 +12,7 @@
             </p>
         </div>
         <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-            <div class="px-4 py-8 bg-white sm:rounded-lg sm:px-10">
+            <div class="form-wrapper px-4 py-8 bg-white sm:rounded-lg sm:px-10">
                 <form v-on:click.prevent v-if="has_not_registered">
                     <div>
                         <label for="name" class="block text-sm font-medium text-gray-700 leading-5">
@@ -123,4 +123,8 @@
 
   }
 </script>
-<style></style>
+<style scoped>
+  .form-wrapper{
+    background-color: var(--color-form-primary);
+  }
+</style>
