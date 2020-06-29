@@ -39,6 +39,7 @@ export default {
   */
   css: [
     '~/assets/css/spinkit.min.css',
+    '~/assets/css/tailwind.css',
     process.env.APP_THEME,
     '~/assets/css/master.css',
   ],
