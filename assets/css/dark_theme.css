@@ -51,6 +51,3 @@ nav {
 form {
   background-color: var(--color-form-primary);
 }
-
-@tailwind components;
-@tailwind utilities;
