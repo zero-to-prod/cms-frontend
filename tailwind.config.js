@@ -22,7 +22,7 @@ module.exports = {
   variants: {},
   plugins: [],
   purge: {
-    mode: 'all',
+    enabled: true,
     content: [
       './dist/**/*.html',
       './dist/**/*.vue',
