@@ -33,10 +33,6 @@
   }
 </script>
 <style scoped>
-  .navbar-top{
-    height: var(--nav-top-height);
-    padding: 0 0 0 var(--nav-left-width);
-  }
   .content{
     min-height: calc(100vh - (64px + 80px + (30px * 2)));
     margin: var(--nav-top-height) 0 0 var(--nav-left-width)

@@ -40,7 +40,7 @@ export default {
   css: [
     '~/assets/css/spinkit.min.css',
     process.env.APP_THEME,
-    // '~/assets/css/master.css',
+    '~/assets/css/master.css',
   ],
   /*
   ** Plugins to load before mounting the App
@@ -68,7 +68,6 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     '@nuxtjs/auth',
-    'nuxt-purgecss'
   ],
   router: {
     middleware: ['auth']
@@ -106,13 +105,9 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extractCSS: true,
+    extractCSS: false,
     extend (config, ctx) {
     }
-  },
-  purgeCSS: {
-    whitelistPatterns: [/svg.*/],
-    purgeCSSInDev: true
   },
   pwa: {
     workbox: {
