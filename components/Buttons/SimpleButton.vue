@@ -1,5 +1,6 @@
 <template>
-    <button :type="type" :class="component_class">
+    <button :type="type"
+            class="border border-transparent button-custom flex justify-center w-full px-4 py-2 text-sm font-medium rounded-m">
         <slot></slot>
     </button>
 </template>
@@ -12,19 +13,7 @@
         default: 'submit'
       },
       component_class: {
-        type: String,
-        default:
-          'border ' +
-          'border-transparent ' +
-          'button-custom ' +
-          'flex ' +
-          'justify-center ' +
-          'w-full ' +
-          'px-4 ' +
-          'py-2 ' +
-          'text-sm ' +
-          'font-medium ' +
-          'rounded-md '
+        type: String
       }
     }
   }

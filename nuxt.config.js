@@ -40,7 +40,7 @@ export default {
   css: [
     '~/assets/css/spinkit.min.css',
     process.env.APP_THEME,
-    // '~/assets/css/master.css',
+    '~/assets/css/master.css',
   ],
   /*
   ** Plugins to load before mounting the App
@@ -113,8 +113,5 @@ export default {
     workbox: {
       clientsClaim: false
     }
-  },
-  tailwindcss: {
-    exposeConfig: true
   }
 }

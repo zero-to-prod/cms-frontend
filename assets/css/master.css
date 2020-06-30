@@ -1,32 +1,32 @@
-/*:root {*/
-/*  --nav-top-height: 3rem;*/
-/*  --nav-left-width: 7rem;*/
-/*}*/
+:root {
+  --nav-top-height: 3rem;
+  --nav-left-width: 7rem;
+}
 
-/*@tailwind base;*/
-/*h1 {*/
-/*  @apply text-6xl;*/
-/*}*/
+@tailwind base;
+h1 {
+  @apply text-6xl;
+}
 
-/*h2 {*/
-/*  @apply text-5xl;*/
-/*}*/
+h2 {
+  @apply text-5xl;
+}
 
-/*h3 {*/
-/*  @apply text-4xl;*/
-/*}*/
+h3 {
+  @apply text-4xl;
+}
 
-/*h4 {*/
-/*  @apply text-3xl;*/
-/*}*/
+h4 {
+  @apply text-3xl;
+}
 
-/*h5 {*/
-/*  @apply text-2xl;*/
-/*}*/
+h5 {
+  @apply text-2xl;
+}
 
-/*h6 {*/
-/*  @apply text-lg;*/
-/*}*/
+h6 {
+  @apply text-lg;
+}
 
-/*@tailwind components;*/
-/*@tailwind utilities;*/
+@tailwind components;
+@tailwind utilities;

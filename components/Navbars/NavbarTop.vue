@@ -2,10 +2,10 @@
     <nav class="fixed right-0 top-0 w-full">
         <div class="flex flex-row-reverse">
             <div v-if="$auth.loggedIn">
-                <button v-on:click="logout()" :class="component_class">Logout</button>
+                <button v-on:click="logout()" class="px-3">Logout</button>
             </div>
             <div v-else>
-                <nuxt-link :to="route_login" :class="component_class">Login</nuxt-link>
+                <nuxt-link :to="route_login" class="px-3">Login</nuxt-link>
             </div>
         </div>
     </nav>
@@ -14,9 +14,7 @@
   export default {
     name: 'NavbarTop',
     data () {
-      return {
-        component_class: 'px-3'
-      }
+      return {}
     },
     methods: {},
     watch: {}
@@ -27,7 +25,8 @@
         height: var(--nav-top-height);
         padding: 0 0 0 var(--nav-left-width);
     }
-    button{
+
+    button {
         height: var(--nav-top-height);
     }
 </style>

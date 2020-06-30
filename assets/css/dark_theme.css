@@ -1,7 +1,4 @@
 :root {
-    --nav-top-height: 3rem;
-    --nav-left-width: 7rem;
-
     /* Brand */
     --color-brand-primary: #2B6CB0;
     --color-brand-secondary: #EBF8FF;
@@ -59,35 +56,12 @@ form {
     background-color: var(--color-form-primary);
 }
 
-button{
+button {
     background-color: var(--color-button-primary);
 }
-button:hover{
+
+button:hover {
     background-color: var(--color-button-primary-hover);
-}
-
-h1 {
-    @apply text-6xl;
-}
-
-h2 {
-    @apply text-5xl;
-}
-
-h3 {
-    @apply text-4xl;
-}
-
-h4 {
-    @apply text-3xl;
-}
-
-h5 {
-    @apply text-2xl;
-}
-
-h6 {
-    @apply text-lg;
 }
 
 @tailwind components;
