@@ -21,11 +21,11 @@
                 </nuxt-link>
             </li>
             <li>
-                <nuxt-link :to="route_dashboard"
+                <a href="dashboard"
                            class="flex transform hover:scale-105 ease-out duration-100 hover:underline">
                     <template-icon/>
                     Dashboard
-                </nuxt-link>
+                </a>
             </li>
         </ul>
         <nuxt-link :to="route_products">Products</nuxt-link>
