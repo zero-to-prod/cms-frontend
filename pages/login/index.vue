@@ -63,7 +63,7 @@
                             <div v-if="!submit">
                                 Sign in
                             </div>
-                            <loading v-if="submit"></loading>
+                            <loading v-if="submit" class="p-3"></loading>
                         </simple-button>
                     </div>
                 </form>

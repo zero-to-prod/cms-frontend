@@ -5,7 +5,7 @@
                 <button v-on:click="logout()" class="px-3">Logout</button>
             </div>
             <div v-else>
-                <nuxt-link :to="route_login" class="px-3">Login</nuxt-link>
+                <nuxt-link :to="route_login"><button class="px-3">Login</button></nuxt-link>
             </div>
         </div>
     </nav>

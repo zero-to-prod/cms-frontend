@@ -21,7 +21,7 @@
     --color-indicator-primary: white;
 
     /* Icons */
-    --color-icon-primary: red;
+    --color-icon-primary: #63B3ED;
 
 
     /* Text */
@@ -29,11 +29,12 @@
     --color-text-secondary: black;
 
     /* Button */
-    --color-button-primary: #2D3748;
-    --color-button-primary-hover: white;
+    --color-button-color-primary: white;
+    --color-button-background-color-primary: #2C5282;
+    --color-button-background-color-primary-hover: #2B6CB0;
 
-    --color-button-secondary: #EDF2F7;
-    --color-button-secondary-hover: #2D3748;
+    --color-button-color-secondary: #EDF2F7;
+    --color-button-background-color-secondary-hover: #2D3748;
 
     color: white;
 }
@@ -57,11 +58,11 @@ form {
 }
 
 button {
-    background-color: var(--color-button-primary);
+    background-color: var(--color-button-background-color-primary);
 }
 
 button:hover {
-    background-color: var(--color-button-primary-hover);
+    background-color: var(--color-button-background-color-primary-hover);
 }
 
 @tailwind components;
