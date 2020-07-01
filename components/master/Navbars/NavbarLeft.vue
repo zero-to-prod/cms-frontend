@@ -51,11 +51,9 @@
   }
 </script>
 <style type="" scoped>
-    .nuxt-link{
-        @apply
-    }
     nav {
-        width: var(--nav-left-width)
+        width: var(--nav-left-width);
+        height: 100%;
     }
 
     .brand {

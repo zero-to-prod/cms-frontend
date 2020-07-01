@@ -38,10 +38,11 @@ export default {
   ** Global CSS
   */
   css: [
-    '~/assets/css/tailwind.css',
+    // '~/assets/css/tailwind.css',
     '~/assets/master/css/spinkit.min.css',
-    process.env.APP_THEME,
+    // process.env.APP_THEME,
     '~/assets/master/css/master.css',
+    '~/assets/master/css/md_theme.scss',
   ],
   /*
   ** Plugins to load before mounting the App
@@ -50,7 +51,8 @@ export default {
     '~/plugins/routes',
     '~/plugins/master/authentication',
     '~/plugins/master/env',
-    '~/plugins/master/globalComponents'
+    '~/plugins/master/globalComponents',
+    '~/plugins/master/vueMaterial'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -68,7 +70,7 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    '@nuxtjs/auth',
+    '@nuxtjs/auth'
   ],
   router: {
     middleware: ['auth']
@@ -108,6 +110,22 @@ export default {
     */
     extractCSS: false,
     extend (config, ctx) {
+    },
+    module: {
+      rules: [
+        // ... other rules omitted
+
+        // this will apply to both plain `.scss` files
+        // AND `<style lang="scss">` blocks in `.vue` files
+        {
+          test: /\.scss$/,
+          use: [
+            'vue-style-loader',
+            'css-loader',
+            'sass-loader'
+          ]
+        }
+      ]
     }
   },
   pwa: {

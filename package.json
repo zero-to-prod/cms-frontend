@@ -19,7 +19,9 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "heroicons": "^0.3.6",
     "nuxt": "^2.13.0",
-    "spinkit": "^2.0.1"
+    "spinkit": "^2.0.1",
+    "vue-material": "^1.0.0-beta-14",
+    "vue-material-design-icons": "^4.7.1"
   },
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^1.4.1",

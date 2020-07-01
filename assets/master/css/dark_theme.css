@@ -50,6 +50,10 @@
 body {
     background-color: var(--color-background-primary)
 }
+main{
+    min-height: calc(100vh - (64px + 80px + (30px * 2)));
+    margin: var(--nav-top-height) 0 0 var(--nav-left-width)
+}
 
 input {
     background-color: var(--color-input-background-primary);

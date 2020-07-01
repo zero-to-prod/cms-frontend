@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <main>
     <nuxt/>
-  </div>
+  </main>
 </template>
 <script>
   export default {
@@ -15,7 +15,6 @@
         title: process.env.APP_TITLE,
         meta: [],
         bodyAttrs: {
-          class: 'bg-background-primary'
         }
       }
     }
