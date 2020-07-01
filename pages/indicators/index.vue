@@ -51,17 +51,17 @@
 </template>
 
 <script>
-  import skBounce from "~/components/Indicators/indicators/skBounce";
-  import skChase from "~/components/Indicators/indicators/skChase";
-  import SkCircleFade from "~/components/Indicators/indicators/skCircleFade";
-  import SkFlow from "~/components/Indicators/indicators/skFlow";
-  import SkGrid from "~/components/Indicators/indicators/skGrid";
-  import SkCircle from "~/components/Indicators/indicators/skCircle";
-  import SkFold from "~/components/Indicators/indicators/skFold";
-  import SkPlane from "~/components/Indicators/indicators/skPlane";
-  import SkPulse from "~/components/Indicators/indicators/skPulse";
-  import SkSwing from "~/components/Indicators/indicators/skSwing";
-  import SkWander from "~/components/Indicators/indicators/skWander";
+  import skBounce from "~/components/master/Indicators/indicators/skBounce";
+  import skChase from "~/components/master/Indicators/indicators/skChase";
+  import SkCircleFade from "~/components/master/Indicators/indicators/skCircleFade";
+  import SkFlow from "~/components/master/Indicators/indicators/skFlow";
+  import SkGrid from "~/components/master/Indicators/indicators/skGrid";
+  import SkCircle from "~/components/master/Indicators/indicators/skCircle";
+  import SkFold from "~/components/master/Indicators/indicators/skFold";
+  import SkPlane from "~/components/master/Indicators/indicators/skPlane";
+  import SkPulse from "~/components/master/Indicators/indicators/skPulse";
+  import SkSwing from "~/components/master/Indicators/indicators/skSwing";
+  import SkWander from "~/components/master/Indicators/indicators/skWander";
 
   export default {
     name: "Indicators",

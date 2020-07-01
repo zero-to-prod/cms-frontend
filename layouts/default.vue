@@ -8,8 +8,8 @@
   </div>
 </template>
 <script>
-  import NavbarLeft from '~/components/Navbars/NavbarLeft'
-  import NavbarTop from '~/components/Navbars/NavbarTop'
+  import NavbarLeft from '~/components/master/Navbars/NavbarLeft'
+  import NavbarTop from '~/components/master/Navbars/Header'
 
   export default {
     components: {

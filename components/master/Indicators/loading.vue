@@ -13,18 +13,18 @@
   <sk-wander v-else-if="LOADING_INDICATOR === 'sk-wander' && LOADING_INDICATOR_ON !== 'false'"></sk-wander>
 </template>
 <script>
-  import skPlane from '~/components/Indicators/indicators/skPlane'
-  import skChase from '~/components/Indicators/indicators/skChase'
-  import skBounce from '~/components/Indicators/indicators/skBounce'
-  import skWave from '~/components/Indicators/indicators/skWave'
-  import skPulse from '~/components/Indicators/indicators/skPulse'
-  import skFlow from '~/components/Indicators/indicators/skFlow'
-  import skSwing from '~/components/Indicators/indicators/skSwing'
-  import skCircle from '~/components/Indicators/indicators/skCircle'
-  import skCircleFade from '~/components/Indicators/indicators/skCircleFade'
-  import skGrid from "~/components/Indicators/indicators/skGrid"
-  import skFold from "~/components/Indicators/indicators/skFold"
-  import skWander from "~/components/Indicators/indicators/skWander"
+  import skPlane from '~/components/master/Indicators/indicators/skPlane'
+  import skChase from '~/components/master/Indicators/indicators/skChase'
+  import skBounce from '~/components/master/Indicators/indicators/skBounce'
+  import skWave from '~/components/master/Indicators/indicators/skWave'
+  import skPulse from '~/components/master/Indicators/indicators/skPulse'
+  import skFlow from '~/components/master/Indicators/indicators/skFlow'
+  import skSwing from '~/components/master/Indicators/indicators/skSwing'
+  import skCircle from '~/components/master/Indicators/indicators/skCircle'
+  import skCircleFade from '~/components/master/Indicators/indicators/skCircleFade'
+  import skGrid from "~/components/master/Indicators/indicators/skGrid"
+  import skFold from "~/components/master/Indicators/indicators/skFold"
+  import skWander from "~/components/master/Indicators/indicators/skWander"
 
   export default {
     name: 'indicatorLoading',

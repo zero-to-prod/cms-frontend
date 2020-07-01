@@ -38,18 +38,19 @@ export default {
   ** Global CSS
   */
   css: [
-    '~/assets/css/spinkit.min.css',
+    '~/assets/css/tailwind.css',
+    '~/assets/master/css/spinkit.min.css',
     process.env.APP_THEME,
-    '~/assets/css/master.css',
+    '~/assets/master/css/master.css',
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
     '~/plugins/routes',
-    '~/plugins/authentication',
-    '~/plugins/env',
-    '~/plugins/globalComponents'
+    '~/plugins/master/authentication',
+    '~/plugins/master/env',
+    '~/plugins/master/globalComponents'
   ],
   /*
   ** Nuxt.js dev-modules

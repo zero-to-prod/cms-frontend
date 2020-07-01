@@ -21,21 +21,21 @@
                 </nuxt-link>
             </li>
             <li>
-                <a href="dashboard"
+                <nuxt-link :to="route_dashboard"
                            class="flex transform hover:scale-105 ease-out duration-100 hover:underline">
                     <template-icon/>
                     Dashboard
-                </a>
+                </nuxt-link>
             </li>
         </ul>
         <nuxt-link :to="route_products">Products</nuxt-link>
     </nav>
 </template>
 <script>
-  import HomeIcon from '~/components/Icons/HomeIcon'
+  import HomeIcon from '~/components/master/Icons/HomeIcon'
   import BrandLogo from '~/components/Logo'
-  import TemplateIcon from '~/components/Icons/TemplateIcon'
-  import UsersIcon from '~/components/Icons/UsersIcon'
+  import TemplateIcon from '~/components/master/Icons/TemplateIcon'
+  import UsersIcon from '~/components/master/Icons/UsersIcon'
 
   export default {
     name: 'NavbarLeft',
@@ -50,7 +50,10 @@
     }
   }
 </script>
-<style scoped>
+<style type="" scoped>
+    .nuxt-link{
+        @apply
+    }
     nav {
         width: var(--nav-left-width)
     }

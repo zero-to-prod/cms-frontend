@@ -8,11 +8,14 @@
     --color-brand-secondary: #EBF8FF;
 
     /* Backgrounds */
-    --color-background-primary: #121212;
+    --color-background-primary: #212121;
     --color-background-secondary: white;
 
+    /* Headers */
+    --color-header-background-primary: #212121;
+
     /* Navbars */
-    --color-nav-primary: black;
+    --color-nav-primary: #212121;
 
     /* Forms */
     --color-form-primary: #333333;
@@ -55,6 +58,7 @@ input {
 
 nav {
     background-color: var(--color-nav-primary);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 form {
@@ -68,6 +72,14 @@ button {
 button:hover {
     background-color: var(--color-button-background-color-primary-hover);
 }
+
+header {
+    background-color: var(--color-header-background-primary);
+    height: var(--nav-top-height);
+    padding: 0 0 0 var(--nav-left-width);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 h1 {
     @apply text-6xl;
 }
@@ -91,5 +103,16 @@ h5 {
 h6 {
     @apply text-lg;
 }
+
 @tailwind components;
+@font-face {
+    font-family: 'RobotoCondensed';
+    src: local('RobotoCondensed'), url(./../fonts/RobotoCondensed-Regular.ttf) format('ttf');
+}
+
+@font-face {
+    font-family: 'Eczar';
+    src: local('Eczar'), url(./../fonts/Eczar-Regular.ttf) format('ttf');
+}
+
 @tailwind utilities;
