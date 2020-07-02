@@ -10,13 +10,15 @@ import {
   MdField
 } from 'vue-material/dist/components'
 import 'vue-material/dist/vue-material.min.css'
-import 'vue-material/dist/theme/default-dark.css'
-import Menu from 'vue-material-design-icons/Menu.vue'
-import AccountMultiple from 'vue-material-design-icons/AccountMultiple.vue'
-import ChevronLeft from 'vue-material-design-icons/ChevronLeft.vue'
-import ViewDashboard from 'vue-material-design-icons/ViewDashboard.vue'
-import Login from 'vue-material-design-icons/Login.vue'
-import Logout from 'vue-material-design-icons/Logout.vue'
+// import 'vue-material/dist/theme/default-dark.css'
+import {
+  Menu,
+  AccountMultiple,
+  ChevronLeft,
+  ViewDashboard,
+  Login,
+  Logout
+} from 'vue-material-design-icons'
 
 Vue.use(MdApp)
 Vue.use(MdDrawer)
