@@ -40,7 +40,7 @@ export default {
   css: [
     '~/assets/master/style/spinkit.min.css',
     '~/assets/master/style/md_theme.scss',
-    '~/assets/master/style/master.css',
+    '~/assets/master/style/master.css'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -100,10 +100,12 @@ export default {
   ** Build configuration
   */
   build: {
+    // analyze: true,
     /*
     ** You can extend webpack config here
     */
-    extractCSS: true,
+    buildModules: ['nuxt-purgecss'],
+    extractCSS: false,
     extend (config, ctx) {
     },
     module: {
@@ -117,7 +119,8 @@ export default {
           ]
         }
       ]
-    }
+    },
+    purgeCSS: {}
   },
   pwa: {
     workbox: {
