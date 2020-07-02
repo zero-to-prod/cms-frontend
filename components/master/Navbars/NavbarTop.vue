@@ -2,13 +2,13 @@
     <div class="page-container md-layout-row">
         <md-app>
             <md-app-toolbar class="md-primary">
-                <md-button class="md-icon-button" @click="toggleMenu" v-if="!menuVisible">
+                <md-button class="menu md-icon-button" @click="toggleMenu" v-if="!menuVisible">
                     <md-menu/>
                 </md-button>
                 <span class="md-title">{{APP_TITLE}}</span>
             </md-app-toolbar>
-            <md-app-drawer :md-active.sync="menuVisible" md-permanent="full">
-                <md-toolbar class="md-transparent" md-elevation="0" v-if="menuVisible">
+            <md-app-drawer :md-active.sync="menuVisible" md-permanent="clipped">
+                <md-toolbar class="md-transparent" md-elevation="0">
                     <span>Navigation</span>
                     <div class="md-toolbar-section-end">
                         <md-button class="md-icon-button md-dense" @click="toggleMenu">
@@ -60,5 +60,13 @@
 <style scoped>
     .md-app {
         min-height: 100vh;
+    }
+    .menu{
+        display: none;
+    }
+    @media only screen and (max-width: 599px) {
+        .menu{
+            display: unset;
+        }
     }
 </style>

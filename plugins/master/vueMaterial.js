@@ -10,7 +10,8 @@ import {
   MdList,
   MdContent,
   MdCard,
-  MdField
+  MdField,
+  MdProgress
 } from 'vue-material/dist/components'
 Vue.use(MdApp)
 Vue.use(MdDrawer)
@@ -20,6 +21,7 @@ Vue.use(MdList)
 Vue.use(MdContent)
 Vue.use(MdField)
 Vue.use(MdCard)
+Vue.use(MdProgress)
 
 import Menu from 'vue-material-design-icons/Menu.vue'
 import AccountMultiple from 'vue-material-design-icons/AccountMultiple.vue'
