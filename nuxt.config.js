@@ -70,7 +70,8 @@ export default {
     '@nuxtjs/auth'
   ],
   router: {
-    middleware: ['auth']
+    middleware: ['auth'],
+    linkActiveClass: 'router-link-active'
   },
 
   auth: {
@@ -120,7 +121,7 @@ export default {
           ]
         }
       ]
-    },
+    }
   },
   pwa: {
     workbox: {

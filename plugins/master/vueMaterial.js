@@ -33,4 +33,3 @@ Vue.component('md-chevron-left', ChevronLeft)
 Vue.component('md-view-dashboard', ViewDashboard)
 Vue.component('md-login', Login)
 Vue.component('md-logout', Logout)
-
