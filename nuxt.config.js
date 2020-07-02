@@ -38,11 +38,9 @@ export default {
   ** Global CSS
   */
   css: [
-    // '~/assets/css/tailwind.css',
-    '~/assets/master/css/spinkit.min.css',
-    // process.env.APP_THEME,
-    '~/assets/master/css/master.css',
-    '~/assets/master/css/md_theme.scss',
+    '~/assets/master/style/spinkit.min.css',
+    '~/assets/master/style/md_theme.scss',
+    '~/assets/master/style/master.css',
   ],
   /*
   ** Plugins to load before mounting the App
@@ -57,10 +55,7 @@ export default {
   /*
   ** Nuxt.js dev-modules
   */
-  buildModules: [
-    // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss'
-  ],
+  buildModules: [],
   /*
   ** Nuxt.js modules
   */
@@ -113,15 +108,11 @@ export default {
     },
     module: {
       rules: [
-        // ... other rules omitted
-
-        // this will apply to both plain `.scss` files
-        // AND `<style lang="scss">` blocks in `.vue` files
         {
           test: /\.scss$/,
           use: [
             'vue-style-loader',
-            'css-loader',
+            'style-loader',
             'sass-loader'
           ]
         }

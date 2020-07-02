@@ -15,7 +15,7 @@
                 <md-button class="md-icon-button" @click="toggleMenu" v-if="!menuVisible">
                     <md-menu/>
                 </md-button>
-                <span class="md-title">My Title</span>
+                <span class="md-title">{{APP_TITLE}}</span>
             </md-app-toolbar>
             <md-app-drawer :md-active.sync="menuVisible" md-persistent="mini">
                 <md-toolbar class="md-transparent" md-elevation="0">
