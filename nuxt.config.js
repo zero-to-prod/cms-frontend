@@ -55,7 +55,7 @@ export default {
   /*
   ** Nuxt.js dev-modules
   */
-  buildModules: [],
+  buildModules: ['nuxt-purgecss'],
   /*
   ** Nuxt.js modules
   */
@@ -104,7 +104,6 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    buildModules: ['nuxt-purgecss'],
     extractCSS: true,
     extend (config, ctx) {
     },
@@ -120,7 +119,6 @@ export default {
         }
       ]
     },
-    purgeCSS: {}
   },
   pwa: {
     workbox: {
