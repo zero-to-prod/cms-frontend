@@ -54,6 +54,11 @@
         min-height: 100vh;
     }
 
+    .md-drawer {
+      width: 150px;
+      max-width: calc(100vw - 125px);
+    }
+
     .menu {
         display: none;
     }
