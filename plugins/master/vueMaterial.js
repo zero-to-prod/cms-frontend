@@ -5,7 +5,9 @@ import {
   MdToolbar,
   MdButton,
   MdList,
-  MdContent
+  MdContent,
+  MdCard,
+  MdField
 } from 'vue-material/dist/components'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default-dark.css'
@@ -22,6 +24,9 @@ Vue.use(MdToolbar)
 Vue.use(MdButton)
 Vue.use(MdList)
 Vue.use(MdContent)
+Vue.use(MdField)
+
+Vue.use(MdCard)
 Vue.component('md-menu', Menu)
 Vue.component('md-account-multiple', AccountMultiple)
 Vue.component('md-chevron-left', ChevronLeft)
