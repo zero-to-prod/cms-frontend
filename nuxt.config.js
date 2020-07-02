@@ -105,7 +105,7 @@ export default {
     ** You can extend webpack config here
     */
     buildModules: ['nuxt-purgecss'],
-    extractCSS: false,
+    extractCSS: true,
     extend (config, ctx) {
     },
     module: {
