@@ -20,7 +20,8 @@
     "nuxt": "^2.13.0",
     "spinkit": "^2.0.1",
     "vue-material": "^1.0.0-beta-14",
-    "vue-material-design-icons": "^4.7.1"
+    "vue-material-design-icons": "^4.7.1",
+    "vuelidate": "^0.7.5"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.27",

@@ -4,8 +4,7 @@ Vue.mixin({
   methods: {
     async login (username, password) {
       try {
-        this.submit = true;
-        this.$nuxt.$loading.start()
+        this.sending = true
         let response = await this.$auth.loginWith('local', {
           data: {
             client_id: this.OAUTH_CLIENT_ID,
@@ -14,13 +13,10 @@ Vue.mixin({
             password: password
           }
         })
-        this.submit = false;
         await this.getUser()
-        this.$nuxt.$loading.finish()
         this.$store.submit(false)
       }
       catch (err) {
-        this.submit = false;
         console.log(err)
       }
     },

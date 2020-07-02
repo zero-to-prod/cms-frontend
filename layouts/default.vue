@@ -1,10 +1,10 @@
 <template>
-    <NavbarTop>
+    <navbar-top>
         <nuxt/>
-    </NavbarTop>
+    </navbar-top>
 </template>
 <script>
-  import NavbarTop from '~/components/master/Navbars/Header'
+  import NavbarTop from '~/components/master/Navbars/NavbarTop'
 
   export default {
     components: {

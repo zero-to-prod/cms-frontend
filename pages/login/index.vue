@@ -1,95 +1,123 @@
 <template>
-    <div>
-        <div class="sm:mx-auto sm:w-full sm:max-w-md">
-            <h3 class="text-center mt-6" v-html="APP_NAME"></h3>
-            <h4 class="text-center leading-9"> Sign in to your account</h4>
-            <p class="mt-2 text-sm text-center leading-5 max-w">
-                Or
-                <nuxt-link to="/register"
-                           class="font-medium focus:outline-none focus:underline transition ease-in-out duration-150">
-                    create a new account
-                </nuxt-link>
-            </p>
-        </div>
-        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-            <div class="form-wrapper px-4 py-8 sm:rounded-lg sm:px-10">
-                <form v-on:submit.prevent>
-                    <div>
-                        <label for="email" class="block text-sm font-medium leading-5">
-                            Email address
-                        </label>
-                        <div class="mt-1 rounded-md shadow-sm">
-                            <input v-model="username"
-                                   id="email"
-                                   name="email"
-                                   type="email"
-                                   required
-                                   autofocus
-                                   class="appearance-none block w-full px-3 py-2 border rounded-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"/>
-                        </div>
-                    </div>
-                    <div class="mt-6">
-                        <label for="password" class="block text-sm font-medium leading-5">
-                            Password
-                        </label>
-                        <div class="mt-1 rounded-md shadow-sm">
-                            <input v-model="password"
-                                   id="password"
-                                   type="password"
-                                   required
-                                   class="appearance-none block w-full px-3 py-2 border rounded-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out sm:text-sm sm:leading-5"/>
-                        </div>
-                        <p class="mt-2 text-sm text-red-600"></p>
-                    </div>
-                    <div class="flex items-center justify-between mt-6">
-                        <div class="flex items-center">
-                            <input v-model="remember"
-                                   id="remember"
-                                   type="checkbox"
-                                   class="form-checkbox w-4 h-4 transition duration-150 ease-in-out"/>
-                            <label for="remember" class="block ml-2 text-sm leading-5">
-                                Remember
-                            </label>
-                        </div>
-                        <div class="text-sm leading-5">
-                            <a href=""
-                               class="font-medium focus:outline-none focus:underline transition ease-in-out duration-150">
-                                Forgot your password?
-                            </a>
-                        </div>
-                    </div>
-                    <div class="mt-6">
-                        <simple-button :disabled="submit" @click.native="login(username, password)">
-                            <div v-if="!submit">
-                                Sign in
-                            </div>
-                            <loading v-if="submit" class="p-3"></loading>
-                        </simple-button>
-                    </div>
-                </form>
-            </div>
-        </div>
+    <div class="form-wrapper">
+        <form novalidate class="md-layout" @submit.prevent="validateUser">
+            <md-card class="md-layout-item md-size-50 md-small-size-100">
+                <md-card-header>
+                    <div class="md-title">{{APP_TITLE}}</div>
+                    <div class="md-accent">Sign into your account</div>
+                </md-card-header>
+                <md-card-content>
+                    <md-field :class="getValidationClass('email')">
+                        <label for="email">Email</label>
+                        <md-input type="email"
+                                  name="email"
+                                  id="email"
+                                  autocomplete="email"
+                                  v-model="form.email"
+                                  :disabled="sending"/>
+                        <span class="md-error" v-if="!$v.form.email.required">The email is required</span>
+                        <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
+                    </md-field>
+                    <md-field :class="getValidationClass('password')">
+                        <label for="password">Password</label>
+                        <md-input type="password"
+                                  name="password"
+                                  id="password"
+                                  autocomplete="password"
+                                  v-model="form.password"
+                                  :disabled="sending"/>
+                        <span class="md-error" v-if="!$v.form.password.required">A password is required.</span>
+                        <span class="md-error" v-else-if="!$v.form.password.password">Invalid password.</span>
+                    </md-field>
+                </md-card-content>
+                <md-progress-bar md-mode="indeterminate" v-if="sending"/>
+                <md-card-actions>
+                    <md-button type="submit" class="md-primary" :disabled="sending">Login</md-button>
+                </md-card-actions>
+            </md-card>
+        </form>
     </div>
 </template>
 <script>
+  import { validationMixin } from 'vuelidate'
+  import {
+    required,
+    email
+  } from 'vuelidate/lib/validators'
+
   export default {
     name: 'Login',
     layout: 'basic',
     auth: 'guest',
+    mixins: [validationMixin],
     data () {
       return {
         submit: false,
         username: null,
         password: null,
-        remember: false
+        remember: false,
+
+        form: {
+          email: null,
+          password: null
+        },
+        userSaved: false,
+        sending: false
+      }
+    },
+    validations: {
+      form: {
+        email: {
+          required,
+          email
+        },
+        password: {
+          required
+        }
       }
     },
     computed: {},
-    methods: {}
+    methods: {
+      getValidationClass (fieldName) {
+        const field = this.$v.form[fieldName]
+
+        if (field) {
+          return {
+            'md-invalid': field.$invalid && field.$dirty
+          }
+        }
+      },
+      clearForm () {
+        this.$v.$reset()
+        this.form.email = null
+        this.form.password = null
+      },
+      validateUser () {
+        this.$v.$touch()
+
+        if (!this.$v.$invalid) {
+          this.login(this.form.email, this.form.password)
+        }
+      }
+    }
   }
 </script>
-<style scoped>
-    .form-wrapper{
-        background-color: var(--color-form-primary);
+<style lang="scss" scoped>
+    .md-progress-bar {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+
+    .form-wrapper {
+        height: 100vh;
+    }
+
+    form {
+        padding-top: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>

@@ -43,13 +43,19 @@
                             <span>Dashboard</span>
                         </nuxt-link>
                     </md-list-item>
-                    <md-list-item>
-                        <md-icon>delete</md-icon>
-                        <span class="md-list-item-text">Trash</span>
+                    <md-list-item class="logout" v-if="$auth.loggedIn">
+                        <md-logout v-on:click="logout()"/>
+                        <nuxt-link v-on:click="logout()" class="md-list-item-text" :to="route_login">
+                            <span>Logout</span>
+                        </nuxt-link>
                     </md-list-item>
-                    <md-list-item>
-                        <md-icon>error</md-icon>
-                        <span class="md-list-item-text">Spam</span>
+                    <md-list-item v-else>
+                        <nuxt-link :to="route_login">
+                            <md-login/>
+                        </nuxt-link>
+                        <nuxt-link class="md-list-item-text" :to="route_login">
+                            <span>Login</span>
+                        </nuxt-link>
                     </md-list-item>
                 </md-list>
             </md-app-drawer>
@@ -76,7 +82,10 @@
   }
 </script>
 <style scoped>
+    .logout:hover{
+        cursor: pointer;
+    }
     .md-app {
-        min-height: 350px;
+        min-height: 100vh;
     }
 </style>
