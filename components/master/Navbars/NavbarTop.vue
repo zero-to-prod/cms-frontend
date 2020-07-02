@@ -54,12 +54,12 @@
         min-height: 100vh;
     }
 
-    .menu, .navigation {
+    .menu {
         display: none;
     }
 
     @media only screen and (max-width: 599px) {
-        .menu, .navigation {
+        .menu {
             display: unset;
         }
     }
