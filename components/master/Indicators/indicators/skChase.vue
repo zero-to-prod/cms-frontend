@@ -20,6 +20,6 @@
   }
 
   .sk-chase-dot::before {
-    background-color: var(--color-indicator-primary)
+    background-color: var(--md-theme-default-primary)
   }
 </style>

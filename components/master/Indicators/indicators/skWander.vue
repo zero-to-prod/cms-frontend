@@ -19,6 +19,6 @@
   }
 
   .sk-wander-cube {
-    background-color: var(--color-indicator-primary);
+    background-color: var(--md-theme-default-primary);
   }
 </style>

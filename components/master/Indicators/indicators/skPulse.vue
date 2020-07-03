@@ -10,6 +10,6 @@
   .sk-pulse {
     height: 1rem;
     width: 1rem;
-    background-color: var(--color-indicator-primary);
+    background-color: var(--md-theme-default-primary);
   }
 </style>
