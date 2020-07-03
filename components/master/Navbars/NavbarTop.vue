@@ -2,7 +2,7 @@
     <div class="page-container md-layout-row">
         <md-app>
             <md-app-toolbar class="md-primary">
-                <md-button class="menu md-icon-button" @click="toggleMenu" v-if="!menuVisible">
+                <md-button class="menu md-icon-button" @click="toggleMenu">
                     <md-menu/>
                 </md-button>
                 <span class="md-title">{{APP_TITLE}}</span>
