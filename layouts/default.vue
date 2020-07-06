@@ -4,7 +4,7 @@
     </navbar-top>
 </template>
 <script>
-  import NavbarTop from '~/components/master/Navbars/NavbarTop'
+  import NavbarTop from '~/components/master/Navbars/NavbarMain'
 
   export default {
     components: {

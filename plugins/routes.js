@@ -20,8 +20,11 @@ Vue.mixin({
     route_products() {
       return '/products/'
     },
+    route_register() {
+      return '/register/'
+    },
     route_users() {
       return '/users/'
-    }
+    },
   }
 })

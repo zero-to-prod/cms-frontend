@@ -12,19 +12,19 @@ export default {
   head: {
     title: process.env.npm_package_name || '',
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      {charset: 'utf-8'},
+      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
       {
         hid: 'description',
         name: 'description',
         content: process.env.npm_package_description || ''
       },
-      { 'http-equiv': 'pragma', content: process.env.CACHE_PRAGMA },
-      { 'http-equiv': 'cache-control', content: process.env.CACHE_CONTROL },
-      { 'http-equiv': 'expires', content: process.env.CACHE_EXPIRES }
+      {'http-equiv': 'pragma', content: process.env.CACHE_PRAGMA},
+      {'http-equiv': 'cache-control', content: process.env.CACHE_CONTROL},
+      {'http-equiv': 'expires', content: process.env.CACHE_EXPIRES}
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ]
   },
   /*
@@ -46,11 +46,13 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/routes',
     '~/plugins/master/authentication',
     '~/plugins/master/env',
+    '~/plugins/master/functions',
     '~/plugins/master/globalComponents',
-    '~/plugins/master/vueMaterial'
+    '~/plugins/master/vueMaterial',
+    '~/plugins/routes',
+    // '~/plugins/routes_api'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -83,7 +85,7 @@ export default {
             method: 'post',
             propertyName: 'access_token'
           },
-          logout: { url: '/logout', method: 'post' },
+          logout: {url: '/logout', method: 'post'},
           user: false
         },
         autoFetchUser: false
@@ -108,7 +110,7 @@ export default {
     ** You can extend webpack config here
     */
     extractCSS: true,
-    extend (config, ctx) {
+    extend(config, ctx) {
     },
     module: {
       rules: [

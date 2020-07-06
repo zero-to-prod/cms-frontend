@@ -1,13 +1,14 @@
 <template>
-    <div>
-        <h1>Home Page</h1>
-        <nuxt-link :to="route_dashboard">Dashboard</nuxt-link>
-        <br/>
-        <nuxt-link :to="route_login">Login</nuxt-link>
-    </div>
+  <div>
+    <h1>Home Page</h1>
+    <nuxt-link :to="route_dashboard">Dashboard</nuxt-link>
+    <br/>
+    <nuxt-link :to="route_login">Login</nuxt-link>
+    <nuxt-link :to="route_register">Register</nuxt-link>
+  </div>
 </template>
 <script>
-  import NavbarTop from '~/components/master/Navbars/NavbarTop'
+  import NavbarTop from '~/components/master/Navbars/NavbarMain'
 
   export default {
     name: 'index',
@@ -16,7 +17,7 @@
     components: {
       NavbarTop
     },
-    data () {
+    data() {
       return {}
     },
     methods: {}

@@ -19,6 +19,7 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "nuxt": "^2.13.0",
     "spinkit": "^2.0.1",
+    "vue-lodash": "^2.1.2",
     "vue-material": "^1.0.0-beta-14",
     "vue-material-design-icons": "^4.7.1",
     "vuelidate": "^0.7.5"

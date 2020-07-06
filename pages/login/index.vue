@@ -1,56 +1,56 @@
 <template>
-    <div class="form-wrapper">
-        <form novalidate class="md-layout" @submit.prevent="validateUser">
-            <md-card class="md-layout-item md-size-50 md-small-size-100">
-                <md-card-header>
-                    <div class="md-title">{{APP_TITLE}}</div>
-                    <div class="md-accent">Sign into your account</div>
-                </md-card-header>
-                <md-card-content>
-                    <md-field :class="getValidationClass('email')">
-                        <label for="email">Email</label>
-                        <md-input type="email"
-                                  name="email"
-                                  id="email"
-                                  autocomplete="email"
-                                  v-model="form.email"
-                                  :disabled="sending"/>
-                        <span class="md-error" v-if="!$v.form.email.required">The email is required</span>
-                        <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
-                    </md-field>
-                    <md-field :class="getValidationClass('password')">
-                        <label for="password">Password</label>
-                        <md-input type="password"
-                                  name="password"
-                                  id="password"
-                                  autocomplete="password"
-                                  v-model="form.password"
-                                  :disabled="sending"/>
-                        <span class="md-error" v-if="!$v.form.password.required">A password is required.</span>
-                        <span class="md-error" v-else-if="!$v.form.password.password">Invalid password.</span>
-                    </md-field>
-                </md-card-content>
-                <md-progress-bar md-mode="indeterminate" v-if="sending"/>
-                <md-card-actions>
-                    <md-button type="submit" class="md-primary" :disabled="sending">Login</md-button>
-                </md-card-actions>
-            </md-card>
-        </form>
-    </div>
+  <form novalidate class="md-layout" @submit.prevent="validateUser">
+    <md-card class="md-layout-item md-size-50 md-small-size-100">
+      <md-card-header>
+        <div class="md-title title-wrapper"><span>Login</span><span>{{APP_TITLE}}</span></div>
+        <div class="md-accent sub-title-wrapper"><span>Sign into your account.</span><span><nuxt-link
+          :to="route_register">Register</nuxt-link></span></div>
+      </md-card-header>
+      <md-card-content>
+        <md-field :class="getValidationClass('email')">
+          <label for="email">Email</label>
+          <md-input type="email"
+                    name="email"
+                    id="email"
+                    autocomplete="email"
+                    v-model="form.email"
+                    :disabled="sending"/>
+          <md-email/>
+          <span class="md-error" v-if="!$v.form.email.required">The email is required</span>
+          <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
+        </md-field>
+        <md-field :class="getValidationClass('password')">
+          <label for="password">Password</label>
+          <md-input type="password"
+                    name="password"
+                    id="password"
+                    autocomplete="password"
+                    v-model="form.password"
+                    :disabled="sending"/>
+          <span class="md-error" v-if="!$v.form.password.required">A password is required.</span>
+          <span class="md-error" v-else-if="!$v.form.password.password">Invalid password.</span>
+        </md-field>
+      </md-card-content>
+      <md-progress-bar md-mode="indeterminate" v-if="sending"/>
+      <md-card-actions>
+        <md-button type="submit" class="md-primary button" :disabled="sending">Login</md-button>
+      </md-card-actions>
+    </md-card>
+    <md-snackbar :md-active.sync="not_authenticated" :md-duration="5000000000" md-persistent>
+      <span>Invalid Credentials</span>
+    </md-snackbar>
+  </form>
 </template>
 <script>
-  import { validationMixin } from 'vuelidate'
-  import {
-    required,
-    email
-  } from 'vuelidate/lib/validators'
+  import {validationMixin} from 'vuelidate'
+  import {email, required} from 'vuelidate/lib/validators'
 
   export default {
     name: 'Login',
     layout: 'basic',
     auth: 'guest',
     mixins: [validationMixin],
-    data () {
+    data() {
       return {
         submit: false,
         username: null,
@@ -62,7 +62,8 @@
           password: null
         },
         userSaved: false,
-        sending: false
+        sending: false,
+        not_authenticated: false
       }
     },
     validations: {
@@ -78,7 +79,7 @@
     },
     computed: {},
     methods: {
-      getValidationClass (fieldName) {
+      getValidationClass(fieldName) {
         const field = this.$v.form[fieldName]
 
         if (field) {
@@ -87,12 +88,12 @@
           }
         }
       },
-      clearForm () {
+      clearForm() {
         this.$v.$reset()
         this.form.email = null
         this.form.password = null
       },
-      validateUser () {
+      validateUser() {
         this.$v.$touch()
 
         if (!this.$v.$invalid) {
@@ -103,21 +104,39 @@
   }
 </script>
 <style lang="scss" scoped>
-    .md-progress-bar {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-    }
+  .button {
+    border-radius: 0.5rem;
+  }
 
-    .form-wrapper {
-        height: 100vh;
-    }
+  .md-progress-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
 
-    form {
-        padding-top: 3rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .form-wrapper {
+    height: 100vh;
+  }
+
+  .title-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sub-title-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .md-card {
+    border-radius: 1rem;
+  }
+
+  form {
+    padding-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 </style>

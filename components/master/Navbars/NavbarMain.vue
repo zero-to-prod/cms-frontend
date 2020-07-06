@@ -9,13 +9,13 @@
             </md-app-toolbar>
             <md-app-drawer :md-active.sync="menuVisible" md-permanent="clipped">
                 <md-list>
+                  <md-list-item :to="route_dashboard">
+                    <md-view-dashboard/>
+                    <span class="md-list-item-text">Dashboard</span>
+                  </md-list-item>
                     <md-list-item :to="route_users" exact>
                         <md-account-multiple/>
                         <span class="md-list-item-text">Users</span>
-                    </md-list-item>
-                    <md-list-item :to="route_dashboard">
-                        <md-view-dashboard/>
-                        <span class="md-list-item-text">Dashboard</span>
                     </md-list-item>
                     <md-list-item class="logout" v-if="$auth.loggedIn" :to="route_login" @click="logout()">
                         <md-logout/>
