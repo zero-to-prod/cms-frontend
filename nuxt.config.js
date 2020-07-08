@@ -49,10 +49,10 @@ export default {
     '~/plugins/master/authentication',
     '~/plugins/master/env',
     '~/plugins/master/functions',
-    '~/plugins/master/globalComponents',
-    '~/plugins/master/vueMaterial',
-    '~/plugins/routes',
-    // '~/plugins/routes_api'
+    '~/plugins/master/global-components',
+    '~/plugins/master/laravel-echo',
+    '~/plugins/master/vue-material',
+    '~/plugins/routes'
   ],
   /*
   ** Nuxt.js dev-modules

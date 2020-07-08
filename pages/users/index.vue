@@ -28,6 +28,7 @@
           <md-table-cell md-label="Job Title" md-sort-by="title">{{ item.title }}</md-table-cell>
         </md-table-row>
       </md-table>
+      <button class="button" v-on:click="order()">Ship</button>
     </div>
   </div>
 </template>
@@ -57,6 +58,15 @@
       getUsers() {
         return new Promise((resolve, reject) => {
           this.$axios.get('/users').then(response => {
+            this.response = response
+          }).catch(onerror => {
+            console.log(onerror)
+          })
+        })
+      },
+      order() {
+        return new Promise((resolve, reject) => {
+          this.$axios.get('/ship?id=1000').then(response => {
             this.response = response
           }).catch(onerror => {
             console.log(onerror)
