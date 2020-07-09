@@ -8,7 +8,9 @@
     name: 'Dashboard',
     components: {},
     data() {
-      return {}
+      return {
+        hi: 'hi'
+      }
     },
     methods: {}
   }

@@ -16,6 +16,6 @@ Vue.mixin({
     },
     route_api_users_actions_is_email_unique() {
       return '/users/actions/is-email-unique'
-    }
+    },
   }
 })

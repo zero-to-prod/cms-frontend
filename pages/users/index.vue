@@ -1,9 +1,8 @@
 <template>
   <div>
     <h1 class="text-center">Users</h1>
-    <button v-on:click="getUsers">Get Users</button>
-    <div>
-      <md-table v-model="searched" md-sort="name" md-sort-order="asc" md-card md-fixed-header>
+    <div v-if="!loading">
+      <md-table v-model="response.data.data" md-sort="name" md-sort-order="asc" md-fixed-header>
         <md-table-toolbar>
           <div class="md-toolbar-section-start">
             <h1 class="md-title">Users</h1>
@@ -22,13 +21,9 @@
 
         <md-table-row slot="md-table-row" slot-scope="{ item }">
           <md-table-cell md-label="ID" md-sort-by="id" md-numeric>{{ item.id }}</md-table-cell>
-          <md-table-cell md-label="Name" md-sort-by="name">{{ item.name }}</md-table-cell>
-          <md-table-cell md-label="Email" md-sort-by="email">{{ item.email }}</md-table-cell>
-          <md-table-cell md-label="Gender" md-sort-by="gender">{{ item.gender }}</md-table-cell>
-          <md-table-cell md-label="Job Title" md-sort-by="title">{{ item.title }}</md-table-cell>
+          <md-table-cell md-label="Email" md-sort-by="email">{{ item.attributes.email }}</md-table-cell>
         </md-table-row>
       </md-table>
-      <button class="button" v-on:click="order()">Ship</button>
     </div>
   </div>
 </template>
@@ -40,7 +35,7 @@
 
   const searchByName = (items, term) => {
     if (term) {
-      return items.filter(item => toLower(item.name).includes(toLower(term)))
+      return items.filter(item => toLower(item.attributes.email).includes(toLower(term)))
     }
 
     return items
@@ -51,24 +46,25 @@
       return {
         search: null,
         searched: [],
-        response: null
+        response: {},
+        loading: true,
+      }
+    },
+    computed: {
+      users() {
+        this.response
       }
     },
     methods: {
       getUsers() {
+        this.loading = true
         return new Promise((resolve, reject) => {
-          this.$axios.get('/users').then(response => {
-            this.response = response
-          }).catch(onerror => {
-            console.log(onerror)
-          })
-        })
-      },
-      order() {
-        return new Promise((resolve, reject) => {
-          this.$axios.get('/ship?id=1000').then(response => {
-            this.response = response
-          }).catch(onerror => {
+          this.$axios.get('/users')
+            .then(response => {
+              this.response = response
+              this.loading = false
+            }).catch(onerror => {
+            this.loading = false
             console.log(onerror)
           })
         })
@@ -77,21 +73,20 @@
         window.alert('Noop')
       },
       searchOnTable() {
-        this.searched = searchByName(this.users, this.search)
+        this.response.data.data = searchByName(this.response.data.data, this.search)
       }
     },
     created() {
-      this.getUsers()
-      this.searched = this.users
+
     },
-    computed: {
-      // users() {
-        // this.response.data.data
-      // }
-    }
+    mounted() {
+      this.getUsers()
+    },
   }
 </script>
 
 <style scoped>
-
+  .md-field {
+    max-width: 300px;
+  }
 </style>
