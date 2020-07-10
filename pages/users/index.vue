@@ -1,8 +1,8 @@
 <template>
   <div>
-    <h1 class="text-center">Users</h1>
     <div v-if="!loading">
-      <md-table v-model="response.data.data" md-sort="name" md-sort-order="asc" md-fixed-header>
+      <h1 class="text-center">Users</h1>
+      <md-table v-model="users" md-sort="name" md-sort-order="asc" md-fixed-header>
         <md-table-toolbar>
           <div class="md-toolbar-section-start">
             <h1 class="md-title">Users</h1>
@@ -21,10 +21,20 @@
 
         <md-table-row slot="md-table-row" slot-scope="{ item }">
           <md-table-cell md-label="ID" md-sort-by="id" md-numeric>{{ item.id }}</md-table-cell>
+          <md-table-cell md-label="Name" md-sort-by="name"><nuxt-link :to="item.id">{{ item.attributes.name }}</nuxt-link></md-table-cell>
           <md-table-cell md-label="Email" md-sort-by="email">{{ item.attributes.email }}</md-table-cell>
+          <md-table-cell md-label="Email Verified At" md-sort-by="email_verified_at">{{ item.attributes.email_verified_at }}</md-table-cell>
+          <md-table-cell md-label="Created At" md-sort-by="created_at">{{ item.attributes.created_at }}</md-table-cell>
         </md-table-row>
       </md-table>
     </div>
+    <md-empty-state
+      v-else
+      md-icon=""
+      md-label="Getting Users"
+      md-description="Grabbing the users from the Database">
+      <loading/>
+    </md-empty-state>
   </div>
 </template>
 
@@ -51,15 +61,19 @@
       }
     },
     computed: {
-      users() {
-        this.response
+      users: function () {
+        return this.response.data.data
+      },
+      users_table: function () {
+        var flatten = require('flat')
+        return this.flatten(this.response.data.data)
       }
     },
     methods: {
       getUsers() {
         this.loading = true
         return new Promise((resolve, reject) => {
-          this.$axios.get('/users')
+          this.$axios.get(this.route_api_users)
             .then(response => {
               this.response = response
               this.loading = false

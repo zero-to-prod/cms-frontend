@@ -54,7 +54,8 @@ export default {
     '~plugins/master/mdi-js',
     '~/plugins/master/vue-material',
     '~/plugins/master/vue-material-design-icons',
-    '~/plugins/routes'
+    '~/plugins/routes',
+    '~/plugins/routes_api'
   ],
   /*
   ** Nuxt.js dev-modules

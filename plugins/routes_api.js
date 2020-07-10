@@ -11,8 +11,8 @@ Vue.mixin({
     route_api_register() {
       return '/register'
     },
-    route_api_user() {
-      return '/user'
+    route_api_users() {
+      return '/users'
     },
     route_api_users_actions_is_email_unique() {
       return '/users/actions/is-email-unique'

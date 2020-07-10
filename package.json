@@ -19,6 +19,7 @@
     "@nuxtjs/component-cache": "^1.1.5",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
+    "flat": "^5.0.0",
     "laravel-echo": "^1.8.0",
     "nuxt": "^2.13.0",
     "pusher-js": "^6.0.3",
