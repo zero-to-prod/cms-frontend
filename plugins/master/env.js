@@ -11,6 +11,9 @@ Vue.mixin({
     APP_MODE () {
       return process.env.APP_MODE
     },
+    API_SERVER_URL () {
+      return process.env.API_SERVER_URL
+    },
     API_URL () {
       return process.env.API_URL
     },

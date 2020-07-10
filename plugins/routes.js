@@ -12,7 +12,7 @@ Vue.mixin({
       return '/home/'
     },
     route_horizon_dashboard_url(){
-      return process.env.API_SERVER_URL + '/horizon/dashboard'
+      return this.API_SERVER_URL + '/horizon/dashboard'
     },
     route_indicators() {
       return '/indicators/'
@@ -27,7 +27,7 @@ Vue.mixin({
       return '/register/'
     },
     route_telescope_dashboard_url(){
-      return process.env.API_SERVER_URL + '/telescope/dashboard'
+      return this.API_SERVER_URL + '/telescope/dashboard'
     },
     route_users() {
       return '/users/'
