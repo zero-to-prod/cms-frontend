@@ -8,6 +8,15 @@
       </md-card-header>
 
       <md-card-content>
+        <md-field :class="getValidationClass('name')">
+          <label for="name">Name</label>
+          <md-input type="text" name="name" id="name" autocomplete="name"
+                    v-model="form.name"
+                    :disabled="sending"/>
+          <span class="md-error" v-if="!$v.form.email.required">A name is required</span>
+          <span class="md-error" v-if="!$v.form.email.isUnique">{{message}}</span>
+          <span class="md-error" v-else-if="!$v.form.email.email">Invalid name</span>
+        </md-field>
         <md-field :class="getValidationClass('email')">
           <label for="email">Email</label>
           <md-input v-on:keyup="isEmailUnique()" type="email" name="email" id="email" autocomplete="email"
@@ -67,6 +76,7 @@
     data() {
       return {
         form: {
+          name: null,
           email: null,
           password: null
         },
@@ -91,6 +101,11 @@
           minLength: minLength(8),
           maxLength: maxLength(255)
         },
+        name: {
+          required,
+          minLength: minLength(2),
+          maxLength: maxLength(255)
+        }
       }
     },
     computed: {},
@@ -116,7 +131,7 @@
       },
 
       register() {
-        if(this.email_is_unavailable){
+        if (this.email_is_unavailable) {
           return;
         }
         return new Promise((resolve, reject) => {
@@ -125,8 +140,10 @@
           this.sending = true
           this.$axios.$post('/register', {
             'grant_type': 'password',
+            'name': this.form.name,
             'email': this.form.email,
             'password': this.form.password,
+            'tenant_id': this.TENANT_ID
           }).then(response => {
             this.sending = false
             this.success = true
@@ -165,12 +182,14 @@
   }
 </script>
 <style lang="scss" scoped>
-  .red{
+  .red {
     color: red;
   }
-  .green{
+
+  .green {
     color: green
   }
+
   .button {
     border-radius: 0.5rem;
   }
@@ -194,10 +213,6 @@
   .sub-title-wrapper {
     display: flex;
     justify-content: space-between;
-  }
-
-  .md-card {
-    border-radius: 1rem;
   }
 
   form {

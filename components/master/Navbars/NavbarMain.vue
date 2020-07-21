@@ -31,8 +31,17 @@
 
             <md-list slot="md-expand">
               <md-list-item class="md-inset">
-                <a :href="route_horizon_dashboard_url" target="_blank"> Horizon</a></md-list-item>
-              <md-list-item class="md-inset"><a :href="route_telescope_dashboard_url" target="_blank">Telescope</a>
+                <a :href="route_horizon_dashboard_url" target="_blank">
+                  <span class="md-list-item-text">Horizon</span>
+                </a>
+              </md-list-item>
+              <md-list-item class="md-inset">
+                <a :href="route_telescope_dashboard_url" target="_blank">
+                  <span class="md-list-item-text">Telescope</span>
+                </a>
+              </md-list-item>
+              <md-list-item class="md-inset" :to="route_auth_log">
+                <span class="md-list-item-text">Auth Log</span>
               </md-list-item>
             </md-list>
           </md-list-item>

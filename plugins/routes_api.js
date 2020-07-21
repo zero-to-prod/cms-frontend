@@ -14,6 +14,9 @@ Vue.mixin({
     route_api_users() {
       return '/users'
     },
+    route_api_auth_log() {
+      return '/auth-log'
+    },
     route_api_users_actions_is_email_unique() {
       return '/users/actions/is-email-unique'
     },

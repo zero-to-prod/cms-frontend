@@ -129,10 +129,6 @@
     justify-content: space-between;
   }
 
-  .md-card {
-    border-radius: 1rem;
-  }
-
   form {
     padding-top: 3rem;
     display: flex;

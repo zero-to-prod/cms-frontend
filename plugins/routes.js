@@ -2,6 +2,9 @@ import Vue from 'vue'
 
 Vue.mixin({
   computed: {
+    route_auth_log() {
+      return '/auth_log/'
+    },
     route_index() {
       return '/'
     },
@@ -11,7 +14,7 @@ Vue.mixin({
     route_home() {
       return '/home/'
     },
-    route_horizon_dashboard_url(){
+    route_horizon_dashboard_url() {
       return this.API_SERVER_URL + '/horizon/dashboard'
     },
     route_indicators() {
@@ -26,7 +29,7 @@ Vue.mixin({
     route_register() {
       return '/register/'
     },
-    route_telescope_dashboard_url(){
+    route_telescope_dashboard_url() {
       return this.API_SERVER_URL + '/telescope/dashboard'
     },
     route_users() {
