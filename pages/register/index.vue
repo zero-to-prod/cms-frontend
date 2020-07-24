@@ -19,7 +19,7 @@
         </md-field>
         <md-field :class="getValidationClass('email')">
           <label for="email">Email</label>
-          <md-input v-on:keyup="isEmailUnique()" type="email" name="email" id="email" autocomplete="email"
+          <md-input v-on:keyup="debounceEmail()" type="email" name="email" id="email" autocomplete="email"
                     v-model="form.email"
                     :disabled="sending"/>
           <md-email :class="email_is_unique_class"/>
@@ -80,6 +80,7 @@
           email: null,
           password: null
         },
+        timeout_id: null,
         success: false,
         message: '',
         finished: false,
@@ -110,6 +111,12 @@
     },
     computed: {},
     methods: {
+      debounceEmail(){
+        clearTimeout(this.timeout_id);
+        this.timeout_id = setTimeout(()=>{
+          this.isEmailUnique()
+        },1000)
+      },
       isEmailUnique() {
         if (this.is_valid_email(this.form.email)) {
           return new Promise((resolve, reject) => {
@@ -163,6 +170,16 @@
           return {
             'md-invalid': field.$invalid && field.$dirty
           }
+        }
+      },
+      debounce(func, wait, immediate) {
+        var timeoutID , timeout = timeout || 2000;
+        return function () {
+          var scope = this , args = arguments;
+          clearTimeout( timeoutID );
+          timeoutID = setTimeout( function () {
+            func.apply( scope , Array.prototype.slice.call( args ) );
+          } , timeout );
         }
       },
       clearForm() {
