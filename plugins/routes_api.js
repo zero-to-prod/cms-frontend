@@ -14,6 +14,9 @@ Vue.mixin({
     route_api_users() {
       return '/users'
     },
+    route_api_user() {
+      return '/user'
+    },
     route_api_auth_log() {
       return '/auth-log'
     },

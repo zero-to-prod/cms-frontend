@@ -35,5 +35,8 @@ Vue.mixin({
     route_users() {
       return '/users/'
     },
+    route_user() {
+      return '/user/'
+    },
   }
 })

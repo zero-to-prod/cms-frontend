@@ -34,6 +34,7 @@ export default {
     color: process.env.PROGRESS_BAR_COLOR,
     height: process.env.PROGRESS_BAR_HEIGHT
   },
+
   /*
   ** Global CSS
   */
@@ -72,13 +73,38 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    '@nuxtjs/auth'
+    '@nuxtjs/auth',
+    ['nuxt-i18n', {
+      vueI18nLoader: true,
+      locales: [
+        {
+          name: 'English',
+          code: 'en',
+          iso: 'en-US',
+          file: 'en-us.js'
+        },
+        {
+          name: 'Español',
+          code: 'es',
+          iso: 'es-ES',
+          file: 'es-es.js'
+        },
+        // {
+        //   name: 'Française',
+        //   code: 'fr',
+        //   iso: 'fr-Fr',
+        //   file: 'es-es.js'
+        // },
+      ],
+      lazy: true,
+      langDir: 'lang/',
+      defaultLocale: 'en',
+    }]
   ],
   router: {
     middleware: ['auth'],
     linkActiveClass: 'router-link-active'
   },
-
   auth: {
     strategies: {
       local: {

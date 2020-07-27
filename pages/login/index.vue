@@ -4,7 +4,9 @@
       <md-card-header>
         <div class="md-title title-wrapper"><span>Login</span><span>{{APP_TITLE}}</span></div>
         <div class="md-accent sub-title-wrapper"><span>Sign into your account.</span><span><nuxt-link
-          :to="route_register">Register</nuxt-link></span></div>
+          :to="route_register">Register</nuxt-link></span>
+          <lang-switcher class="lang-switcher"/>
+        </div>
       </md-card-header>
       <md-card-content>
         <md-field :class="getValidationClass('email')">
@@ -44,12 +46,16 @@
 <script>
   import {validationMixin} from 'vuelidate'
   import {email, required} from 'vuelidate/lib/validators'
+  import LangSwitcher from "~/components/master/Lang/LangSwitcher";
 
   export default {
     name: 'Login',
     layout: 'basic',
     auth: 'guest',
     mixins: [validationMixin],
+    components: {
+      LangSwitcher
+    },
     data() {
       return {
         submit: false,

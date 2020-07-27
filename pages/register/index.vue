@@ -39,6 +39,12 @@
           <span class="md-error" v-if="!$v.form.password.required">A password is required.</span>
           <span class="md-error" v-else-if="!$v.form.password.password">Invalid password.</span>
         </md-field>
+        <md-field v-if="$i18n.locales.length > 1">
+          <label for="locale">{{$t('Default_Language')}}</label>
+          <md-select v-model="form.locale" name="locale" id="locale">
+            <md-option v-bind:key="locale.code" v-for="locale in $i18n.locales" :value="locale.code">{{locale.name}}</md-option>
+          </md-select>
+        </md-field>
       </md-card-content>
       <md-progress-bar md-mode="indeterminate" v-if="sending"/>
       <md-card-actions>
@@ -78,7 +84,8 @@
         form: {
           name: null,
           email: null,
-          password: null
+          password: null,
+          locale: 'en'
         },
         timeout_id: null,
         success: false,
@@ -111,11 +118,11 @@
     },
     computed: {},
     methods: {
-      debounceEmail(){
+      debounceEmail() {
         clearTimeout(this.timeout_id);
-        this.timeout_id = setTimeout(()=>{
+        this.timeout_id = setTimeout(() => {
           this.isEmailUnique()
-        },1000)
+        }, 1000)
       },
       isEmailUnique() {
         if (this.is_valid_email(this.form.email)) {
@@ -173,13 +180,13 @@
         }
       },
       debounce(func, wait, immediate) {
-        var timeoutID , timeout = timeout || 2000;
+        var timeoutID, timeout = timeout || 2000;
         return function () {
-          var scope = this , args = arguments;
-          clearTimeout( timeoutID );
-          timeoutID = setTimeout( function () {
-            func.apply( scope , Array.prototype.slice.call( args ) );
-          } , timeout );
+          var scope = this, args = arguments;
+          clearTimeout(timeoutID);
+          timeoutID = setTimeout(function () {
+            func.apply(scope, Array.prototype.slice.call(args));
+          }, timeout);
         }
       },
       clearForm() {
