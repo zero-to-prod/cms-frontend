@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import 'vue-material/dist/vue-material.min.css'
-import 'vue-material/dist/theme/default-dark.css'
 
 import {
   MdApp,
@@ -18,7 +17,10 @@ import {
   MdTable,
   MdToolbar,
   MdEmptyState,
-  MdRipple
+  MdRipple,
+  MdAvatar,
+  MdRadio,
+  MdSubheader
 } from 'vue-material/dist/components'
 
 Vue.use(MdApp)
@@ -37,3 +39,6 @@ Vue.use(MdDialog)
 Vue.use(MdTable)
 Vue.use(MdEmptyState)
 Vue.use(MdRipple)
+Vue.use(MdAvatar)
+Vue.use(MdRadio)
+Vue.use(MdSubheader)

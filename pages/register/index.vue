@@ -157,7 +157,7 @@
             'name': this.form.name,
             'email': this.form.email,
             'password': this.form.password,
-            'tenant_id': this.TENANT_ID
+            'locale_default': this.form.locale
           }).then(response => {
             this.sending = false
             this.success = true

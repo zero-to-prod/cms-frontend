@@ -4,8 +4,12 @@ export default {
   Created_At: 'Creado en',
   Dashboard: 'Tablero',
   Default_Language: 'Idioma predeterminado',
+  Details: 'Detalles',
+  email: 'correo electrónico',
+  Email: 'Correo electrónico',
   Event: 'Evento',
   Language: 'Idioma',
+  Last_login: 'Último acceso',
   Login: 'Iniciar sesión',
   Logout: 'Cerrar sesión',
   Name: 'Nombre',
@@ -15,6 +19,6 @@ export default {
   Users: 'Los usuarios',
   Hello: 'Hola',
   pages: {
-    home: 'Dashboard',
-  },
+    home: 'Dashboard'
+  }
 }

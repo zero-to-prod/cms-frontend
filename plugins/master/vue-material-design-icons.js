@@ -11,6 +11,7 @@ import Menu from 'vue-material-design-icons/Menu.vue'
 import Telescope from 'vue-material-design-icons/Telescope.vue'
 import Translate from 'vue-material-design-icons/Translate.vue'
 import ViewDashboard from 'vue-material-design-icons/ViewDashboard.vue'
+import Calendar from 'vue-material-design-icons/Calendar.vue'
 
 
 Vue.component('md-account-circle', AccountCircle)
@@ -24,3 +25,4 @@ Vue.component('md-menu', Menu)
 Vue.component('md-telescope', Telescope)
 Vue.component('md-translate', Translate)
 Vue.component('md-view-dashboard', ViewDashboard)
+Vue.component('md-calendar', Calendar)

@@ -36,7 +36,6 @@
           <md-list-item md-expand :md-expanded.sync="expandAdmin">
             <md-telescope class="md-icon"/>
             <span class="md-list-item-text">{{$t('Administrator')}}</span>
-
             <md-list slot="md-expand">
               <md-list-item>
                 <a :href="route_horizon_dashboard_url" target="_blank">

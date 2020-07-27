@@ -30,6 +30,9 @@ Vue.mixin({
       return new Promise((resolve, reject) => {
         this.$axios.$get('/user').then(response => {
           this.$auth.setUser(response)
+          console.log('hit')
+          this.$i18n.locale = this.$auth.user.data.user.locale;
+          console.log(this.$i18n.locale)
         }).catch(onerror => {
         })
       })

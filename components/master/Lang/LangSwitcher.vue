@@ -5,14 +5,6 @@
       <md-option v-for="(locale, index) in $i18n.locales" v-if="locale.code !== $i18n.locale" :value="locale.code" :key="index">{{locale.name}}</md-option>
     </md-select>
   </md-field>
-<!--  <select v-model="selectedValue" @change="onChange(selectedValue)">-->
-<!--    <option disabled value>Please select one</option>-->
-<!--    <option-->
-<!--      v-for="(locale, index) in $i18n.locales"-->
-<!--      :key="index"-->
-<!--      :value="locale.code"-->
-<!--    >{{locale.name}}</option>-->
-<!--  </select>-->
 </template>
 
 <script>
@@ -25,7 +17,6 @@
     },
     methods: {
       onChange(event) {
-        console.log('hit')
         this.$router.replace(this.switchLocalePath(this.selectedValue));
       }
     }

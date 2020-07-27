@@ -5,7 +5,6 @@
         <div class="md-title title-wrapper"><span>Login</span><span>{{APP_TITLE}}</span></div>
         <div class="md-accent sub-title-wrapper"><span>Sign into your account.</span><span><nuxt-link
           :to="route_register">Register</nuxt-link></span>
-          <lang-switcher class="lang-switcher"/>
         </div>
       </md-card-header>
       <md-card-content>
@@ -62,10 +61,10 @@
         username: null,
         password: null,
         remember: false,
-
         form: {
           email: null,
-          password: null
+          password: null,
+          locale: 'en'
         },
         userSaved: false,
         sending: false,
