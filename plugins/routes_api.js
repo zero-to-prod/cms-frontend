@@ -23,8 +23,8 @@ Vue.mixin({
     route_api_users_actions_is_email_unique () {
       return '/users/actions/is-email-unique'
     },
-    route_api_users_actions_update_locale () {
-      return '/users/actions/update-locale'
+    route_api_user_actions_update_locale () {
+      return '/user/actions/update-locale'
     }
   }
 })

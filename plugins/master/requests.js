@@ -18,7 +18,7 @@ Vue.mixin({
     changeLocale () {
       this.loading = true
       return new Promise((resolve, reject) => {
-        this.$axios.post(this.route_api_users_actions_update_locale, {
+        this.$axios.post(this.route_api_user_actions_update_locale, {
           id: this.user.id,
           user_locale: this.user.locale
         }).then(response => {
