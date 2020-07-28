@@ -2,6 +2,7 @@ export default {
   Administrator: 'Administrator',
   Authentication_Log: 'Authentication Log',
   Created_At: 'Created At',
+  Created_at: 'Created at',
   Dashboard: 'Dashboard',
   Default_Language: 'Default Language',
   Details: 'Details',
@@ -17,6 +18,7 @@ export default {
   Search_by_name: 'Search by name',
   Searching_the_database: 'Searching the database...',
   Time: 'Time',
+  Updated_at: 'Updated at',
   Users: 'Users',
   pages: {
     home: 'Dashboard'

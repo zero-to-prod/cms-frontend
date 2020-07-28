@@ -39,8 +39,8 @@
             <md-translate></md-translate>
           </md-icon>
           <div class="md-list-item-text">
-            <md-radio v-model="language"
-                      :value="locale.name"
+            <md-radio v-model="user.locale"
+                      :value="locale.code"
                       v-for="locale in $i18n.locales"
                       v-bind:key="locale.name">{{ locale.name }}
             </md-radio>
@@ -53,7 +53,7 @@
           </md-icon>
           <div class="md-list-item-text">
             <span>{{ date_long(user.created_at) }}</span>
-            <span>Created at</span>
+            <span>{{$t('Created_at')}}</span>
           </div>
         </md-list-item>
         <md-list-item>
@@ -62,7 +62,7 @@
           </md-icon>
           <div class="md-list-item-text">
             <span>{{ date_long(user.updated_at) }}</span>
-            <span>Updated at</span>
+            <span>{{$t('Updated_at')}}</span>
           </div>
         </md-list-item>
       </md-list>
