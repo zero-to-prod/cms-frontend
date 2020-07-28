@@ -2,6 +2,9 @@ import Vue from 'vue'
 
 Vue.mixin({
   methods: {
+    user_name_abbreviation: function(string) {
+      return string.match(/\b\w/g).join('')
+    },
     is_valid_email(email) {
       return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
     },

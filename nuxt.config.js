@@ -53,6 +53,7 @@ export default {
     '~/plugins/master/global-components',
     '~/plugins/master/laravel-echo',
     '~plugins/master/mdi-js',
+    '~plugins/master/requests',
     '~/plugins/master/vue-material',
     '~/plugins/master/vue-material-design-icons',
     '~/plugins/routes',
