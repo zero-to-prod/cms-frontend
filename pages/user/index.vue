@@ -21,16 +21,34 @@
 </template>
 <script>
 import UserComponent from '~/components/master/User/UserComponent'
-
+import { validationMixin } from 'vuelidate'
+import {
+  required,
+  email,
+  minLength,
+  maxLength
+} from 'vuelidate/lib/validators'
 export default {
   name: 'User',
   components: {
     UserComponent
   },
+  mixins: [validationMixin],
   data () {
     return {
+      loading: true,
       response: {},
-      loading: true
+      form: {
+        firstName: null,
+      }
+    }
+  },
+  validations: {
+    form: {
+      firstName: {
+        required,
+        minLength: minLength(3)
+      },
     }
   },
   computed: {
@@ -41,7 +59,17 @@ export default {
       return this.response.data.data.last_login
     }
   },
-  methods: {},
+  methods: {
+    getValidationClass (fieldName) {
+      const field = this.$v.form[fieldName]
+
+      if (field) {
+        return {
+          'md-invalid': field.$invalid && field.$dirty
+        }
+      }
+    },
+  },
   created () {
 
   },

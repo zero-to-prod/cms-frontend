@@ -30,7 +30,7 @@
         <md-radio v-model="user.locale"
                   :value="locale.code"
                   v-for="locale in $i18n.locales"
-                  @change="changeLocale()"
+                  @change="updateLocale(user.locale)"
                   :name="locale.name"
                   :id="locale.name"
                   v-bind:key="locale.name">{{ locale.name }}

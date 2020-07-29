@@ -14,7 +14,6 @@ Vue.mixin({
             password: password
           }
         })
-        await this.getUser()
         this.$store.submit(false)
         this.sending = false
       }
@@ -23,12 +22,13 @@ Vue.mixin({
         this.sending = false
       }
     },
-    logout () {
-      this.$nuxt.$auth.logout()
+    async logout () {
+      await this.$nuxt.$auth.logout()
+      this.$router.push(this.route_login)
     },
     getUser () {
       return new Promise((resolve, reject) => {
-        this.$axios.$get('/user').then(response => {
+        this.$axios.$get(this.route_api_user).then(response => {
           this.$auth.setUser(response)
           console.log('hit')
           this.$i18n.locale = this.$auth.user.data.user.locale;

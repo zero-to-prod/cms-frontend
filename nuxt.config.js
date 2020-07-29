@@ -27,25 +27,15 @@ export default {
       {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
     ]
   },
-  /*
-  ** Customize the progress-bar color
-  */
   loading: {
     color: process.env.PROGRESS_BAR_COLOR,
     height: process.env.PROGRESS_BAR_HEIGHT
   },
-
-  /*
-  ** Global CSS
-  */
   css: [
     '~/assets/master/style/spinkit.min.css',
     '~/assets/master/style/md_theme.scss',
     '~/assets/master/style/master.css'
   ],
-  /*
-  ** Plugins to load before mounting the App
-  */
   plugins: [
     '~/plugins/master/authentication',
     '~/plugins/master/env',
@@ -59,20 +49,10 @@ export default {
     '~/plugins/routes',
     '~/plugins/routes_api'
   ],
-  /*
-  ** Nuxt.js dev-modules
-  */
-  buildModules: [
-    // 'nuxt-purgecss'
-  ],
-  /*
-  ** Nuxt.js modules
-  */
+  buildModules: [],
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     '@nuxtjs/auth',
     ['nuxt-i18n', {
@@ -103,10 +83,15 @@ export default {
     }]
   ],
   router: {
-    middleware: ['auth'],
-    linkActiveClass: 'router-link-active'
+    middleware: ['auth']
   },
   auth: {
+    redirect: {
+      login: false,
+      logout: '/logout',
+      callback: '/user',
+      home: '/dashboard'
+    },
     strategies: {
       local: {
         endpoints: {
@@ -116,29 +101,19 @@ export default {
             propertyName: 'access_token'
           },
           logout: {url: '/logout', method: 'post'},
-          user: false
+          user: {url: '/user', method: 'get', propertyName: 'data'},
         },
-        autoFetchUser: false
+        autoFetchUser: true
       }
     }
   },
-  /*
-  ** Axios module configuration
-  ** See https://axios.nuxtjs.org/options
-  */
   axios: {
     baseURL: process.env.API_URL,
     apiURL: process.env.API_URL,
     progress: true
   },
-  /*
-  ** Build configuration
-  */
+
   build: {
-    // analyze: true,
-    /*
-    ** You can extend webpack config here
-    */
     extractCSS: true,
     extend(config, ctx) {
     },

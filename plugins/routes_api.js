@@ -25,6 +25,9 @@ Vue.mixin({
     },
     route_api_user_actions_update_locale () {
       return '/user/actions/update-locale'
+    },
+    route_api_user_actions_update_name () {
+      return '/user/actions/update-name'
     }
   }
 })

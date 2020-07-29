@@ -5,6 +5,7 @@
 </template>
 <script>
   export default {
+    name: 'basic-layout',
     data() {
       return {
         title: process.env.APP_TITLE + '| Login'
