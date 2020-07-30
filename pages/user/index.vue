@@ -1,5 +1,8 @@
 <template>
   <div>
+    <button @click="$fetch">
+      Refresh
+    </button>
     <md-content v-if="!loading">
       <header>
         <md-avatar class="md-avatar-icon md-large md-accent">
@@ -15,7 +18,7 @@
           <span class="md-headline">{{ normal_computed_property }}</span>
         </h1>
         <p>
-          <span class="md-caption">{{ $t('Last_login') }}: {{ date_long($auth.user.last_login.created_at) }}</span>
+          <span class="md-caption">{{ $t('Last_login') }}: {{ last_login }}</span>
         </p>
       </header>
       <user-component v-bind:user="$auth.user.user"/>
@@ -29,6 +32,7 @@
 import UserComponent from '~/components/master/User/UserComponent'
 import { validationMixin } from 'vuelidate'
 import {mapState} from 'vuex'
+import {mapGetters} from 'vuex'
 import {
   required,
   email,
@@ -40,9 +44,13 @@ export default {
   components: {
     UserComponent
   },
+  async fetch () {
+    this.post = await this.$axios.get(this.route_api_user)
+  },
   mixins: [validationMixin],
   data () {
     return {
+      post: {},
       loading: false,
       response: {},
       form: {
@@ -62,7 +70,10 @@ export default {
     test: state => state.auth_log.test,
     normal_computed_property(state){
       return 'Normal Computed Property'
-    }
+    },
+    last_login() {
+      return this.$store.getters['auth_log/lastLogin']
+    },
     // user: function() {
     //   return this.response.data.data.user
     // },

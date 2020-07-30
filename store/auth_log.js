@@ -1,11 +1,16 @@
 export const state = () => ({
   auth_log: null,
-  test: 'test'
+  test: 'test',
+  last_login: '2020-07-3T12:38:12.000000Z'
 })
 
 export const getters = {
   getAuthLog: (state) => {
     return state.auth_log
+  },
+  lastLogin: (state) => {
+    // return $nuxt.date_long(state.last_login)
+    return state.last_login
   }
 }
 export const setters = {
