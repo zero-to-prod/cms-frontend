@@ -1,0 +1,32 @@
+export const state = () => ({
+  auth_log: null,
+  test: 'test'
+})
+
+export const getters = {
+  getAuthLog: (state) => {
+    return state.auth_log
+  }
+}
+export const setters = {
+  setAuthLog: (state, auth_log) => {
+    state.auth_log = auth_log
+  }
+}
+export const mutations = {
+  setAuthLog: (state, auth_log) => {
+    state.auth_log = auth_log
+  }
+}
+export const actions = {
+  getAuthLog(state) {
+    return new Promise((resolve, reject) => {
+      this.$axios.get(this.route_api_auth_log)
+        .then(response => {
+          state.commit('setAuthLog', response.data.data)
+        }).catch(onerror => {
+        console.log(onerror)
+      })
+    })
+  },
+}

@@ -21,7 +21,9 @@ Vue.mixin({
         this.$axios.post(this.route_api_user_actions_update_locale, {
           user_locale: locale
         }).then(response => {
+          this.$store.commit('authUser', { id: 123 })
           this.loading = false
+          this.$store.state.auth.user.user.locale = locale
           this.$router.push(this.switchLocalePath(this.user.locale))
         }).catch(onerror => {
           this.loading = false

@@ -86,12 +86,7 @@ export default {
     middleware: ['auth']
   },
   auth: {
-    redirect: {
-      login: false,
-      logout: '/logout',
-      callback: '/user',
-      home: '/dashboard'
-    },
+    watchLoggedIn: true,
     strategies: {
       local: {
         endpoints: {
