@@ -40,6 +40,9 @@ export default {
   components: {
     UserComponent
   },
+  async fetch({store}){
+    await store.dispatch('getUser')
+  },
   mixins: [validationMixin],
   data () {
     return {
