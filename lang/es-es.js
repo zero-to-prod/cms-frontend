@@ -9,6 +9,7 @@ export default {
   email: 'correo electrónico',
   Email: 'Correo electrónico',
   Event: 'Evento',
+  IP_Address: 'Dirección IP',
   Language: 'Idioma',
   Last_login: 'Último acceso',
   Login: 'Iniciar sesión',
@@ -19,6 +20,7 @@ export default {
   Time: 'Hora',
   Updated_at: 'Actualizado en',
   Users: 'Los usuarios',
+  User_Agent: 'Agente de usuario',
   Hello: 'Hola',
   pages: {
     home: 'Dashboard'

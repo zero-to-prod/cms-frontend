@@ -13,10 +13,9 @@ export const mutations = {
 }
 
 export const actions = {
-  async getUser({commit}){
-    let response = await this.$axios.get(this.route_api_user)
-    let user = response.data.data.user
+  async getUser({commit, rootState}){
+    let response = await this.$axios.$get(rootState.route_api.user.index)
 
-    commit('setUser', user)
+    commit('setUser', response.data.user)
   }
 }

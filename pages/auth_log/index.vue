@@ -18,9 +18,10 @@
         </md-table-empty-state>
 
         <md-table-row slot="md-table-row" slot-scope="{ item }">
-          <md-table-cell :md-label="$t('Name')" md-sort-by="name">{{item.user.name}}</md-table-cell>
           <md-table-cell :md-label="$t('Event')" md-sort-by="login">{{ login_to_string(item.login) }}</md-table-cell>
           <md-table-cell :md-label="$t('Time')" md-sort-by="created_at">{{ date_long(item.created_at) }}</md-table-cell>
+          <md-table-cell :md-label="$t('IP_Address')" md-sort-by="ip_address">{{ item.ip_address }}</md-table-cell>
+          <md-table-cell :md-label="$t('User_Agent')" md-sort-by="ip_address">{{ item.user_agent }}</md-table-cell>
         </md-table-row>
       </md-table>
     </div>
@@ -59,9 +60,8 @@
       user: function () {
         return this.response.data
       },
-      users_table: function () {
-        var flatten = require('flat')
-        return this.flatten(this.response.data.data)
+      auth_log_url: function() {
+        return this.$store.state.route_api.auth_log.index
       }
     },
     methods: {
@@ -74,7 +74,7 @@
       getAuthLog() {
         this.loading = true
         return new Promise((resolve, reject) => {
-          this.$axios.get(this.route_api_auth_log)
+          this.$axios.get(this.auth_log_url)
             .then(response => {
               this.response = response
               this.loading = false

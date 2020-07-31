@@ -10,6 +10,7 @@ export default {
   Email: 'Email',
   Event: 'Event',
   Hello: 'Hello',
+  IP_Address: 'IP Address',
   Language: 'Language',
   Last_login: 'Last login',
   Login: 'Login',
@@ -19,6 +20,7 @@ export default {
   Searching_the_database: 'Searching the database...',
   Time: 'Time',
   Updated_at: 'Updated at',
+  User_Agent: 'User Agent',
   Users: 'Users',
   pages: {
     home: 'Dashboard'

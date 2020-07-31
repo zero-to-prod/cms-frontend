@@ -12,19 +12,19 @@ export default {
   head: {
     title: process.env.npm_package_name || '',
     meta: [
-      {charset: 'utf-8'},
-      {name: 'viewport', content: 'width=device-width, initial-scale=1'},
+      { charset: 'utf-8' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
         content: process.env.npm_package_description || ''
       },
-      {'http-equiv': 'pragma', content: process.env.CACHE_PRAGMA},
-      {'http-equiv': 'cache-control', content: process.env.CACHE_CONTROL},
-      {'http-equiv': 'expires', content: process.env.CACHE_EXPIRES}
+      { 'http-equiv': 'pragma', content: process.env.CACHE_PRAGMA },
+      { 'http-equiv': 'cache-control', content: process.env.CACHE_CONTROL },
+      { 'http-equiv': 'expires', content: process.env.CACHE_EXPIRES }
     ],
     link: [
-      {rel: 'icon', type: 'image/x-icon', href: '/favicon.ico'}
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
   loading: {
@@ -38,6 +38,7 @@ export default {
   ],
   plugins: [
     '~/plugins/master/authentication',
+    '~/plugins/master/deserialize-json-api',
     '~/plugins/master/env',
     '~/plugins/master/functions',
     '~/plugins/master/global-components',
@@ -55,7 +56,9 @@ export default {
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
     '@nuxtjs/auth',
-    ['nuxt-i18n', {
+    '@nuxt/http',
+    [
+      'nuxt-i18n', {
       vueI18nLoader: true,
       locales: [
         {
@@ -69,7 +72,7 @@ export default {
           code: 'es',
           iso: 'es-ES',
           file: 'es-es.js'
-        },
+        }
         // {
         //   name: 'Française',
         //   code: 'fr',
@@ -79,7 +82,7 @@ export default {
       ],
       lazy: true,
       langDir: 'lang/',
-      defaultLocale: 'en',
+      defaultLocale: 'en'
     }]
   ],
   router: {
@@ -95,8 +98,8 @@ export default {
             method: 'post',
             propertyName: 'access_token'
           },
-          logout: {url: '/logout', method: 'post'},
-          user: {url: '/user', method: 'get', propertyName: 'data'},
+          logout: { url: '/logout', method: 'post' },
+          user: { url: '/user', method: 'get', propertyName: 'data' }
         },
         autoFetchUser: true
       }
@@ -107,10 +110,13 @@ export default {
     apiURL: process.env.API_URL,
     progress: true
   },
-
+  http: {
+    baseURL: process.env.API_URL,
+    progress: true
+  },
   build: {
     extractCSS: true,
-    extend(config, ctx) {
+    extend (config, ctx) {
     },
     module: {
       rules: [

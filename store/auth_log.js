@@ -26,7 +26,7 @@ export const mutations = {
 export const actions = {
   getAuthLog(state) {
     return new Promise((resolve, reject) => {
-      this.$axios.get(this.route_api_auth_log)
+      this.$axios.get(this.$store.state.route_api.auth_log.index)
         .then(response => {
           state.commit('setAuthLog', response.data.data)
         }).catch(onerror => {

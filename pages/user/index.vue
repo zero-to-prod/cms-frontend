@@ -18,7 +18,7 @@
           <span class="md-caption">{{ $t('Last_login') }}: {{ date_long($auth.user.last_login.created_at) }}</span>
         </p>
       </header>
-      <user-component v-bind:user="$auth.user.user"/>
+      <user-component v-bind:user="$store.state.user"/>
     </md-content>
     <md-empty-state v-else :md-description="$t('Searching_the_database')">
       <loading/>
@@ -40,9 +40,7 @@ export default {
   components: {
     UserComponent
   },
-  async fetch({store}){
-    await store.dispatch('getUser')
-  },
+  middleware: 'user',
   mixins: [validationMixin],
   data () {
     return {
