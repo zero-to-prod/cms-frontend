@@ -3,8 +3,8 @@ export const state = () => ({
     index: 'user',
     actions: {
       is_email_unique: '/users/actions/is-email-unique',
-      update_locale: '/user/actions/update-locale',
-      update_name: '/user/actions/update-name'
+      update_locale: '/index/actions/update-locale',
+      update_name: '/index/actions/update-name'
     }
   },
   users: {

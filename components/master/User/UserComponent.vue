@@ -4,11 +4,11 @@
     <md-list-item>
       <md-icon class="md-primary">
         <md-avatar class="md-avatar-icon md-accent md-small">
-          <md-ripple>{{ user_name_abbreviation(user.name) }}</md-ripple>
+          <md-ripple>{{ user_name_abbreviation($store.state.user.index.name) }}</md-ripple>
         </md-avatar>
       </md-icon>
       <div class="md-list-item-text">
-        <span>{{ user.name }}</span>
+        <span>{{ $store.state.user.index.name }}</span>
       </div>
     </md-list-item>
     <md-subheader>{{ $t('Email') }}</md-subheader>
@@ -17,7 +17,7 @@
         <md-email></md-email>
       </md-icon>
       <div class="md-list-item-text">
-        <span>{{ user.email }}</span>
+        <span>{{ $store.state.user.index.email }}</span>
       </div>
     </md-list-item>
     <md-subheader>{{ $t('Language') }}</md-subheader>
@@ -27,13 +27,14 @@
         <loading v-else/>
       </md-icon>
       <div class="md-list-item-text">
-        <md-radio v-model="user.locale"
-                  :value="locale.code"
+        <md-radio v-model="user_locale"
                   v-for="locale in $i18n.locales"
-                  @change="updateLocale(user.locale)"
                   :name="locale.name"
-                  :id="locale.name"
-                  v-bind:key="locale.name">{{ locale.name }}
+                  :value="locale.code"
+                  :id="locale.code"
+                  v-bind:key="locale.name"
+                  @change="$store.dispatch('user/updateLocale', {locale: locale.code})"
+                  >{{ locale.name }}
         </md-radio>
       </div>
     </md-list-item>
@@ -43,7 +44,7 @@
         <md-calendar></md-calendar>
       </md-icon>
       <div class="md-list-item-text">
-        <span>{{ date_long(user.created_at) }}</span>
+        <span>{{ date_long($store.state.user.index.created_at) }}</span>
         <span>{{ $t('Created_at') }}</span>
       </div>
     </md-list-item>
@@ -52,25 +53,33 @@
         <md-calendar></md-calendar>
       </md-icon>
       <div class="md-list-item-text">
-        <span>{{ date_long(user.updated_at) }}</span>
+        <span>{{ date_long($store.state.user.index.updated_at) }}</span>
         <span>{{ $t('Updated_at') }}</span>
       </div>
     </md-list-item>
   </md-list>
 </template>
 <script>
+import {mapState} from 'vuex'
 export default {
   name: 'user-component',
-  props: {
-    user: Object
-  },
   data () {
     return {
       loading: false,
-      response: {}
+      response: {},
+      locales: this.$i18n.locales
     }
   },
-  computed: {},
+  computed: {
+    user_locale: {
+      get() {
+        return this.$store.state.user.index.locale;
+      },
+      set(value) {
+        this.$store.commit("user/UPDATE_LOCALE", value);
+      }
+    }
+  },
   methods: {
 
   },

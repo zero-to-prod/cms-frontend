@@ -1,6 +1,5 @@
-export default async function ({store, from}){
-  if(store.state.user.length === {}){
-    await store.dispatch('getUser')
+export default async function ({store, from}) {
+  if (store.state.user.index === null) {
+    await store.dispatch('user/get')
   }
-  console.log(from)
 }

@@ -15,7 +15,7 @@ Vue.mixin({
       return '/users'
     },
     route_api_user () {
-      return '/user'
+      return '/index'
     },
     route_api_auth_log () {
       return '/auth-log'
@@ -24,10 +24,10 @@ Vue.mixin({
       return '/users/actions/is-email-unique'
     },
     route_api_user_actions_update_locale () {
-      return '/user/actions/update-locale'
+      return '/index/actions/update-locale'
     },
     route_api_user_actions_update_name () {
-      return '/user/actions/update-name'
+      return '/index/actions/update-name'
     }
   }
 })

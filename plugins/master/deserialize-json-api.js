@@ -1,4 +1,10 @@
 import Vue from 'vue'
-import DeserializeJsonApi from 'deserialize-json-api'
+import { deserialize } from "deserialize-json-api";
 
-// Vue.use(DeserializeJsonApi)
+Vue.mixin({
+  methods: {
+    deserialize(data){
+      return deserialize(data)
+    }
+  }
+})

@@ -3,22 +3,18 @@
     <md-content v-if="!loading">
       <header>
         <md-avatar class="md-avatar-icon md-large md-accent">
-          <md-ripple>{{ user_name_abbreviation($auth.user.user.name) }}</md-ripple>
+          <md-ripple>{{ name_abbreviation }}</md-ripple>
         </md-avatar>
         <h1>
-          <span class="md-headline">{{ $auth.user.user.name }}</span>
-        </h1>
-        <h1>
-          <span class="md-headline">{{ test }}</span>
-        </h1>
-        <h1>
-          <span class="md-headline">{{ normal_computed_property }}</span>
+          <span class="md-headline">{{ $store.state.user.index.name }}</span>
         </h1>
         <p>
-          <span class="md-caption">{{ $t('Last_login') }}: {{ date_long($auth.user.last_login.created_at) }}</span>
+          <span class="md-caption">{{ $t('Last_login') }}: {{
+              date_long($store.state.user.last_login.created_at)
+            }}</span>
         </p>
       </header>
-      <user-component v-bind:user="$store.state.user"/>
+      <user-component/>
     </md-content>
     <md-empty-state v-else :md-description="$t('Searching_the_database')">
       <loading/>
@@ -27,14 +23,10 @@
 </template>
 <script>
 import UserComponent from '~/components/master/User/UserComponent'
-import { validationMixin } from 'vuelidate'
+import {validationMixin} from 'vuelidate'
 import {mapState} from 'vuex'
-import {
-  required,
-  email,
-  minLength,
-  maxLength
-} from 'vuelidate/lib/validators'
+import {minLength, required} from 'vuelidate/lib/validators'
+import {mapGetters} from 'vuex'
 export default {
   name: 'User',
   components: {
@@ -42,7 +34,7 @@ export default {
   },
   middleware: 'user',
   mixins: [validationMixin],
-  data () {
+  data() {
     return {
       loading: false,
       response: {},
@@ -59,23 +51,13 @@ export default {
       },
     }
   },
-  computed: mapState({
-    test: state => state.auth_log.test,
-    normal_computed_property(state){
-      return 'Normal Computed Property'
+  computed: {
+    name_abbreviation: function (){
+      return this.$user_name_abbreviation(this.$store.getters["user/name"])
     }
-    // user: function() {
-    //   return this.response.data.data.user
-    // },
-    // last_login: function() {
-    //   return this.response.data.data.last_login
-    // },
-    // test : function () {
-    //   return this.$store.state.auth_log.test
-    // }
-  }),
+  },
   methods: {
-    getValidationClass (fieldName) {
+    getValidationClass(fieldName) {
       const field = this.$v.form[fieldName]
 
       if (field) {
@@ -85,11 +67,9 @@ export default {
       }
     },
   },
-  created () {
-
+  created() {
   },
-  mounted () {
-    // this.getUser()
+  mounted() {
   }
 }
 </script>

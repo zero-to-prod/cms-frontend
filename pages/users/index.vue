@@ -14,7 +14,7 @@
 
         <md-table-empty-state
           md-label="No users found"
-          :md-description="`No user found for this '${search}' query. Try a different search term or create a new user.`">
+          :md-description="`No index found for this '${search}' query. Try a different search term or create a new index.`">
           <md-button class="md-primary md-raised" @click="newUser">Create New User</md-button>
         </md-table-empty-state>
 

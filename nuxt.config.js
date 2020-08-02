@@ -45,6 +45,7 @@ export default {
     '~/plugins/master/laravel-echo',
     '~plugins/master/mdi-js',
     '~plugins/master/requests',
+    '~plugins/master/user_name_abbreviation',
     '~/plugins/master/vue-material',
     '~/plugins/master/vue-material-design-icons',
     '~/plugins/routes',

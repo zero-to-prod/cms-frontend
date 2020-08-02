@@ -1,37 +1,23 @@
 export const state = () => ({
-  auth_log: null,
-  test: 'test',
-  last_login: '2020-07-3T12:38:12.000000Z'
+  index: null
 })
 
 export const getters = {
-  getAuthLog: (state) => {
-    return state.auth_log
-  },
-  lastLogin: (state) => {
-    // return $nuxt.date_long(state.last_login)
-    return state.last_login
+  getIndex: (state) => {
+    return JSON.parse(JSON.stringify(state.index))
   }
 }
-export const setters = {
-  setAuthLog: (state, auth_log) => {
-    state.auth_log = auth_log
-  }
-}
+
 export const mutations = {
-  setAuthLog: (state, auth_log) => {
-    state.auth_log = auth_log
-  }
-}
-export const actions = {
-  getAuthLog(state) {
-    return new Promise((resolve, reject) => {
-      this.$axios.get(this.$store.state.route_api.auth_log.index)
-        .then(response => {
-          state.commit('setAuthLog', response.data.data)
-        }).catch(onerror => {
-        console.log(onerror)
-      })
-    })
+  set (state, data){
+    state.index = data
   },
+}
+
+export const actions = {
+  async get({commit}){
+    let response = await this.$axios.get('/auth-log')
+
+    commit('set', response.data)
+  }
 }

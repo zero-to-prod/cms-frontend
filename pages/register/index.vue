@@ -11,7 +11,7 @@
         <md-field :class="getValidationClass('name')">
           <label for="name">Name</label>
           <md-input type="text" name="name" id="name" autocomplete="name"
-                    v-model="form.name"
+                    v-model.trim="form.name"
                     :disabled="sending"/>
           <span class="md-error" v-if="!$v.form.email.required">A name is required</span>
           <span class="md-error" v-if="!$v.form.email.isUnique">{{message}}</span>
@@ -19,8 +19,8 @@
         </md-field>
         <md-field :class="getValidationClass('email')">
           <label for="email">Email</label>
-          <md-input v-on:keyup="debounceEmail()" type="email" name="email" id="email" autocomplete="email"
-                    v-model="form.email"
+          <md-input type="email" name="email" id="email" autocomplete="email"
+                    v-model.lazy.trim="form.email"
                     :disabled="sending"/>
           <md-email :class="email_is_unique_class"/>
           <span class="md-error" v-if="!$v.form.email.required">The email is required</span>
@@ -33,7 +33,7 @@
                     name="password"
                     id="password"
                     autocomplete="password"
-                    v-model="form.password"
+                    v-model.trim="form.password"
                     :disabled="sending"/>
 
           <span class="md-error" v-if="!$v.form.password.required">A password is required.</span>
