@@ -3,34 +3,34 @@
     <md-card class="md-layout-item md-size-50 md-small-size-100">
       <md-card-header>
         <div class="md-title title-wrapper">
-          <span>Login</span>
-          <span>{{ APP_TITLE }}</span>
+          <span v-html="$t('Login')"/>
+          <span v-html="APP_TITLE"/>
         </div>
         <div class="md-accent sub-title-wrapper">
-          <span>Sign into your account.</span>
+          <span v-html="$t('Sign_into_your_account')"/>
           <span>
-            <nuxt-link :to="route_register">Register</nuxt-link>
+            <nuxt-link :to="r_register" v-html="$t('Register')"/>
           </span>
         </div>
       </md-card-header>
       <md-card-content>
         <md-field :class="getValidationClass('email')">
-          <label for="email">Email</label>
+          <label for="email" v-html="$t('Email')"/>
           <md-input type="email" name="email" id="email" autocomplete="email" v-model="form.email" :disabled="sending"/>
           <md-email/>
-          <span class="md-error" v-if="!$v.form.email.required">The email is required</span>
-          <span class="md-error" v-else-if="!$v.form.email.email">Invalid email</span>
+          <span class="md-error" v-if="!$v.form.email.required" v-html="$t('An_email_is_required')"/>
+          <span class="md-error" v-else-if="!$v.form.email.email" v-html="$t('Invalid_email')"/>
         </md-field>
         <md-field :class="getValidationClass('password')">
-          <label for="password">Password</label>
+          <label for="password" v-html="$t('Password')"/>
           <md-input type="password"
                     name="password"
                     id="password"
                     autocomplete="password"
                     v-model="form.password"
                     :disabled="sending"/>
-          <span class="md-error" v-if="!$v.form.password.required">A password is required.</span>
-          <span class="md-error" v-else-if="!$v.form.password.password">Invalid password.</span>
+          <span class="md-error" v-if="!$v.form.password.required" v-html="$t('A_password_is_required')"/>
+          <span class="md-error" v-else-if="!$v.form.password.password" v-html="$t('Invalid_password')"/>
         </md-field>
       </md-card-content>
       <md-progress-bar md-mode="indeterminate" v-if="sending"/>
@@ -41,11 +41,11 @@
             <lang-switcher/>
           </md-list-item>
         </md-list>
-        <md-button type="submit" class="md-primary button" :disabled="sending">{{$t('Login')}}</md-button>
+        <md-button type="submit" class="md-primary button" :disabled="sending">{{ $t('Login') }}</md-button>
       </md-card-actions>
     </md-card>
     <md-snackbar :md-active.sync="not_authenticated" :md-duration="5000000000" md-persistent>
-      <span>Invalid Credentials</span>
+      <span v-html="$t('Invalid_credentials')"/>
     </md-snackbar>
   </form>
 </template>
@@ -143,7 +143,7 @@ export default {
   justify-content: space-between;
 }
 
-.md-card-actions.md-alignment-right{
+.md-card-actions.md-alignment-right {
   justify-content: space-between;
 }
 

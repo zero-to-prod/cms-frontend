@@ -2,41 +2,40 @@ import Vue from 'vue'
 
 Vue.mixin({
   computed: {
-    route_auth_log() {
-      return '/auth_log/'
+    r_user () {
+      return this.r('/user')
     },
-    route_index() {
-      return '/'
+    r_auth_log () {
+      return this.r('/auth_log/')
     },
-    route_dashboard() {
-      return '/dashboard/'
+    r_index () {
+      return this.r('/')
     },
-    route_home() {
-      return '/home/'
+    r_dashboard () {
+      return this.r('/dashboard/')
     },
-    route_horizon_dashboard_url() {
+    r_home () {
+      return this.r('/home/')
+    },
+    r_horizon_dashboard_url () {
       return this.API_SERVER_URL + '/horizon/dashboard'
     },
-    route_indicators() {
-      return '/indicators/'
+    r_login () {
+      return this.r('/login/')
     },
-    route_login() {
-      return '/login/'
-    },
-    route_products() {
-      return '/products/'
-    },
-    route_register() {
+    r_register () {
       return '/register/'
     },
-    route_telescope_dashboard_url() {
+    r_telescope_dashboard_url () {
       return this.API_SERVER_URL + '/telescope/dashboard'
     },
-    route_users() {
-      return '/users/'
-    },
-    route_user() {
-      return '/user/'
-    },
+    r_users () {
+      return this.r('/user/')
+    }
+  },
+  methods: {
+    r (path) {
+      return this.localePath(path)
+    }
   }
 })

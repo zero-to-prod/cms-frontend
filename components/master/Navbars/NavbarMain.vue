@@ -5,60 +5,60 @@
         <md-button class="menu md-icon-button" @click="toggleMenu">
           <md-menu/>
         </md-button>
-        <span class="md-title">{{ APP_TITLE }}</span>
+        <span class="md-title" v-html="APP_TITLE"/>
         <div class="md-toolbar-section-end">
-          <nuxt-link :to="localePath(route_user)">
+          <nuxt-link :to="r_user">
             <md-account-circle class="user"/>
           </nuxt-link>
         </div>
       </md-app-toolbar>
       <md-app-drawer :md-active.sync="menuVisible" md-permanent="clipped">
         <md-list :md-expand-single="true">
-          <md-list-item :to="localePath(route_dashboard)">
+          <md-list-item :to="r_dashboard">
             <md-view-dashboard class="md-icon"/>
-            <span class="md-list-item-text">{{ $t('Dashboard') }}</span>
+            <span class="md-list-item-text" v-html="$t('Dashboard')"/>
           </md-list-item>
-          <md-list-item :to="localePath(route_users)" exact>
+          <md-list-item :to="r_users" exact>
             <md-account-multiple class="md-icon"/>
-            <span class="md-list-item-text">{{ $t('Users') }}</span>
+            <span class="md-list-item-text" v-html="$t('Users')"/>
           </md-list-item>
-          <md-list-item class="logout" v-if="$auth.loggedIn" :to="localePath(route_login)" @click="logout()">
+          <md-list-item class="logout" v-if="$auth.loggedIn" :to="r_login" @click="logout()">
             <md-logout class="md-icon"/>
-            <span class="md-list-item-text">{{ $t('Logout') }}</span>
+            <span class="md-list-item-text" v-html="$t('Logout')"/>
           </md-list-item>
-          <md-list-item v-else :to="localePath(route_login)">
+          <md-list-item v-else :to="r_login">
             <md-login class="md-icon"/>
-            <span class="md-list-item-text">{{ $t('Login') }}</span>
+            <span class="md-list-item-text" v-html="$t('Login')"/>
           </md-list-item>
           <md-list-item md-expand :md-expanded.sync="expandAdmin">
             <md-telescope class="md-icon"/>
-            <span class="md-list-item-text">{{ $t('Administrator') }}</span>
+            <span class="md-list-item-text"v-html="$t('Administrator')"/>
             <md-list slot="md-expand">
               <md-list-item>
-                <a :href="route_horizon_dashboard_url" target="_blank">
-                  <span class="md-list-item-text">Horizon</span>
+                <a :href="r_horizon_dashboard_url" target="_blank">
+                  <span class="md-list-item-text" v-html="'Horizon'"/>
                 </a>
               </md-list-item>
               <md-list-item>
-                <a :href="route_telescope_dashboard_url" target="_blank">
-                  <span class="md-list-item-text">Telescope</span>
+                <a :href="r_telescope_dashboard_url" target="_blank">
+                  <span class="md-list-item-text" v-html="'Telescope'"/>
                 </a>
               </md-list-item>
-              <md-list-item :to="localePath(route_auth_log)">
-                <span class="md-list-item-text">{{ $t('Authentication_Log') }}</span>
+              <md-list-item :to="r_auth_log">
+                <span class="md-list-item-text" v-html="$t('Authentication_Log')"/>
               </md-list-item>
             </md-list>
           </md-list-item>
           <md-list-item md-expand :md-expanded.sync="expandLanguage">
             <md-translate class="md-icon"/>
-            <span class="md-list-item-text">{{ $t('Language') }}</span>
+            <span class="md-list-item-text" v-html="$t('Language')"/>
             <md-list slot="md-expand">
               <md-list-item v-for="locale in $i18n.locales"
                             v-if="locale.code !== $i18n.locale"
                             :key="locale.code"
                             class="md-inset"
                             :to="switchLocalePath(locale.code)">
-                <span class="md-list-item-text"> {{ locale.name }}</span>
+                <span class="md-list-item-text" v-html="locale.name"/>
               </md-list-item>
             </md-list>
           </md-list-item>
@@ -80,7 +80,6 @@ export default {
     LangSwitcher,
     LaravelHorizon
   },
-
   data () {
     return {
       menuVisible: false,
@@ -100,12 +99,16 @@ export default {
       ]
     }
   },
+  computed: {
+    url_user() {
+      return this.localePath(this.$store.state.route_api.user.index)
+    }
+  },
   methods: {
     toggleMenu () {
       this.menuVisible = !this.menuVisible
-    }
-  },
-  watch: {}
+    },
+  }
 }
 </script>
 <style scoped>

@@ -2,26 +2,25 @@
   <form novalidate class="md-layout" @submit.prevent="validateUser">
     <md-card class="md-layout-item md-size-50 md-small-size-100">
       <md-card-header>
-        <div class="md-title title-wrapper"><span v-html="$t('Register')"></span><span>{{ APP_TITLE }}</span></div>
-        <div class="md-accent sub-title-wrapper"><span v-html="$t('Create_your_account')"></span><span><nuxt-link
-          :to="route_login" v-html="$t('Login')"></nuxt-link></span></div>
+        <div class="md-title title-wrapper">
+          <span v-html="$t('Register')"/>
+          <span v-html="APP_TITLE"/>
+        </div>
+        <div class="md-accent sub-title-wrapper">
+          <span v-html="$t('Create_your_account')"/>
+          <nuxt-link :to="r_login" v-html="$t('Login')"/>
+        </div>
       </md-card-header>
-
       <md-card-content>
         <md-field :class="getValidationClass('name')">
-          <label for="name" v-html="$t('Name')"></label>
-          <md-input type="text"
-                    name="name"
-                    id="name"
-                    autocomplete="name"
-                    v-model.trim="form.name"
-                    :disabled="sending"/>
-          <span class="md-error" v-if="!$v.form.email.required" v-html="$t('A_name_is_required')"></span>
-          <span class="md-error" v-if="!$v.form.email.isUnique">{{ message }}</span>
-          <span class="md-error" v-else-if="!$v.form.email.email" v-html="$t('Invalid_name')"></span>
+          <label for="name" v-html="$t('Name')"/>
+          <md-input type="text" name="name" id="name" autocomplete="name" v-model.trim="form.name" :disabled="sending"/>
+          <span class="md-error" v-if="!$v.form.email.required" v-html="$t('A_name_is_required')"/>
+          <span class="md-error" v-if="!$v.form.email.isUnique" v-html="message"/>
+          <span class="md-error" v-else-if="!$v.form.email.email" v-html="$t('Invalid_name')"/>
         </md-field>
         <md-field :class="getValidationClass('email')">
-          <label for="email" v-html="$t('Email')"></label>
+          <label for="email" v-html="$t('Email')"/>
           <md-input v-on:keyup="debounceEmail()"
                     type="email"
                     name="email"
@@ -30,9 +29,9 @@
                     v-model.lazy.trim="form.email"
                     :disabled="sending"/>
           <md-email :class="email_is_unique_class"/>
-          <span class="md-error" v-if="!$v.form.email.required" v-html="$t('An_email_is_required')"></span>
-          <span class="md-error" v-if="!$v.form.email.isUnique">{{ message }}</span>
-          <span class="md-error" v-else-if="!$v.form.email.email" v-html="$t('Invalid_email')"></span>
+          <span class="md-error" v-if="!$v.form.email.required" v-html="$t('An_email_is_required')"/>
+          <span class="md-error" v-if="!$v.form.email.isUnique" v-html="message"/>
+          <span class="md-error" v-else-if="!$v.form.email.email" v-html="$t('Invalid_email')"/>
         </md-field>
         <md-field :class="getValidationClass('password')">
           <label for="password" v-html="$t('Password')"></label>
@@ -42,13 +41,14 @@
                     autocomplete="password"
                     v-model.trim="form.password"
                     :disabled="sending"/>
-          <span class="md-error" v-if="!$v.form.password.required" v-html="$t('A_password_is_required')"></span>
-          <span class="md-error" v-else-if="!$v.form.password.password" v-html="$t('Invalid_password')"></span>
+          <span class="md-error" v-if="!$v.form.password.required" v-html="$t('A_password_is_required')"/>
+          <span class="md-error" v-else-if="!$v.form.password.password" v-html="$t('Invalid_password')"/>
         </md-field>
         <md-field v-if="$i18n.locales.length > 1">
-          <label for="locale" v-html="$t('Default_Language')"></label>
+          <label for="locale" v-html="$t('Default_Language')"/>
           <md-select v-model="form.locale" name="locale" id="locale">
-            <md-option v-bind:key="locale.code" v-for="locale in $i18n.locales" :value="locale.code">{{locale.name}}
+            <md-option v-bind:key="locale.code" v-for="locale in $i18n.locales" :value="locale.code">
+              {{ locale.name }}
             </md-option>
           </md-select>
         </md-field>
@@ -61,38 +61,41 @@
             <lang-switcher/>
           </md-list-item>
         </md-list>
-        <md-button type="submit" class="md-primary button" :disabled="sending">{{$t('Register')}}</md-button>
+        <md-button type="submit" class="md-primary button" :disabled="sending">{{ $t('Register') }}</md-button>
       </md-card-actions>
     </md-card>
     <md-snackbar :md-active.sync="finished" :md-duration="5000000000" md-persistent>
-      <span>{{ message }}</span>
-      <nuxt-link :to="route_login" v-html="$t('Login')"></nuxt-link>
+      <span v-html="message"/>
+      <nuxt-link :to="r_login" v-html="$t('Login')"/>
     </md-snackbar>
     <md-snackbar :md-active.sync="email_is_unavailable" :md-duration="5000000000" md-persistent>
-      <span v-html="$t('Email_already_registered')"></span>
+      <span v-html="$t('Email_already_registered')"/>
     </md-snackbar>
     <md-dialog :md-active.sync="success">
-      <md-dialog-title>{{$t('Success')}}</md-dialog-title>
+      <md-dialog-title>{{ $t('Success') }}</md-dialog-title>
       <md-dialog-content>
-        <p>{{$t('Account_created')}}: {{ form.email }}</p>
+        <p>{{ $t('Account_created') }}: {{ form.email }}</p>
       </md-dialog-content>
       <md-dialog-actions>
-        <md-button class="md-primary button" :to="route_login" @click="success = false">{{$t('Login')}}</md-button>
+        <md-button class="md-primary button" :to="r_login" @click="success = false">
+          {{ $t('Login') }}
+        </md-button>
       </md-dialog-actions>
     </md-dialog>
   </form>
 </template>
 <script>
-import {validationMixin} from 'vuelidate'
-import {email, maxLength, minLength, required} from 'vuelidate/lib/validators'
+import { validationMixin } from 'vuelidate'
+import { email, maxLength, minLength, required } from 'vuelidate/lib/validators'
 import LangSwitcher from '@/components/master/Lang/LangSwitcher'
+
 export default {
   name: 'Register',
   layout: 'basic',
   auth: 'guest',
-  components: {LangSwitcher},
+  components: { LangSwitcher },
   mixins: [validationMixin],
-  data() {
+  data () {
     return {
       form: {
         name: null,
@@ -115,7 +118,7 @@ export default {
       email: {
         required,
         email,
-        maxLength: maxLength(255),
+        maxLength: maxLength(255)
       },
       password: {
         required,
@@ -130,21 +133,21 @@ export default {
     }
   },
   computed: {
-    url_is_email_unique(){
+    url_is_email_unique () {
       return this.$store.state.route_api.user.actions.is_email_unique
     },
-    url_register() {
+    url_register () {
       return this.$store.state.route_api.register.index
     }
   },
   methods: {
-    debounceEmail() {
-      clearTimeout(this.timeout_id);
+    debounceEmail () {
+      clearTimeout(this.timeout_id)
       this.timeout_id = setTimeout(() => {
         this.isEmailUnique()
       }, 1000)
     },
-    async isEmailUnique() {
+    async isEmailUnique () {
       if (this.$is_valid_email(this.form.email)) {
         let response = await this.$axios.$post(this.url_is_email_unique, {
           email: this.form.email
@@ -152,16 +155,17 @@ export default {
         if (response.is_unique) {
           this.email_is_unavailable = false
           this.email_is_unique_class = 'green'
-        } else {
+        }
+        else {
           this.email_is_unavailable = true
           this.email_is_unique_class = 'red'
         }
       }
     },
 
-    register() {
+    register () {
       if (this.email_is_unavailable) {
-        return;
+        return
       }
       return new Promise((resolve, reject) => {
         this.success = false
@@ -185,7 +189,7 @@ export default {
         })
       })
     },
-    getValidationClass(fieldName) {
+    getValidationClass (fieldName) {
       const field = this.$v.form[fieldName]
 
       if (field) {
@@ -194,13 +198,13 @@ export default {
         }
       }
     },
-    validateUser() {
+    validateUser () {
       this.$v.$touch()
       if (!this.$v.$invalid) {
         this.register()
       }
     }
-  },
+  }
 }
 </script>
 <style lang="scss" scoped>
@@ -223,7 +227,7 @@ export default {
   left: 0;
 }
 
-.md-card-actions.md-alignment-right{
+.md-card-actions.md-alignment-right {
   justify-content: space-between;
 }
 

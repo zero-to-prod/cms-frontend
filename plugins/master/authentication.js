@@ -24,15 +24,13 @@ Vue.mixin({
     },
     async logout () {
       await this.$nuxt.$auth.logout()
-      this.$router.push(this.route_login)
+      this.$router.push('/login')
     },
     getUser () {
       return new Promise((resolve, reject) => {
         this.$axios.$get(this.route_api_user).then(response => {
           this.$auth.setUser(response)
-          console.log('hit')
           this.$i18n.locale = this.$auth.user.data.user.locale;
-          console.log(this.$i18n.locale)
         }).catch(onerror => {
         })
       })

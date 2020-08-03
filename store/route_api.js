@@ -1,6 +1,6 @@
 export const state = () => ({
   user: {
-    index: 'user',
+    index: '/user',
     actions: {
       is_email_unique: '/user/actions/is-email-unique',
       update_locale: '/user/actions/update-locale',
@@ -23,3 +23,8 @@ export const state = () => ({
     index: '/auth-log'
   }
 })
+export const getters = {
+  user (state){
+    return this.localePath(state.user.index)
+  },
+}
