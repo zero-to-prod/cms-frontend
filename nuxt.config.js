@@ -39,6 +39,7 @@ export default {
   plugins: [
     '~/plugins/master/authentication',
     '~/plugins/master/deserialize-json-api',
+    '~/plugins/master/ellipsis',
     '~/plugins/master/env',
     '~/plugins/master/functions',
     '~/plugins/master/global-components',
