@@ -33,7 +33,7 @@
                   :value="locale.code"
                   :id="locale.code"
                   v-bind:key="locale.name"
-                  @change="$store.dispatch('user/updateLocale', {locale: locale.code})"
+                  @change="updateLocale(locale.code)"
                   >{{ locale.name }}
         </md-radio>
       </div>
@@ -60,7 +60,8 @@
   </md-list>
 </template>
 <script>
-import {mapState} from 'vuex'
+import { mapState } from 'vuex'
+
 export default {
   name: 'user-component',
   data () {
@@ -72,16 +73,23 @@ export default {
   },
   computed: {
     user_locale: {
-      get() {
-        return this.$store.state.user.index.locale;
+      get () {
+        return this.$store.state.user.index.locale
       },
-      set(value) {
-        this.$store.commit("user/UPDATE_LOCALE", value);
+      set (value) {
+        this.$store.commit('user/UPDATE_LOCALE', value)
       }
+    },
+    url_user () {
+      return this.$store.state.route_api.user.index
     }
   },
   methods: {
-
+    async updateLocale (locale_code) {
+      await this.$store.dispatch('user/updateLocale', { locale: locale_code })
+      await this.switchLocalePath(locale_code)
+      // this.$router.go(this.localePath(this.url_user))
+    }
   },
   created () {
   },

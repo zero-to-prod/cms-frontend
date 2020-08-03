@@ -55,6 +55,12 @@
       </md-card-content>
       <md-progress-bar md-mode="indeterminate" v-if="sending"/>
       <md-card-actions>
+        <md-list class="md-dense">
+          <md-list-item>
+            <md-translate class="md-icon"/>
+            <lang-switcher/>
+          </md-list-item>
+        </md-list>
         <md-button type="submit" class="md-primary button" :disabled="sending">{{$t('Register')}}</md-button>
       </md-card-actions>
     </md-card>
@@ -79,12 +85,12 @@
 <script>
 import {validationMixin} from 'vuelidate'
 import {email, maxLength, minLength, required} from 'vuelidate/lib/validators'
-
+import LangSwitcher from '@/components/master/Lang/LangSwitcher'
 export default {
   name: 'Register',
   layout: 'basic',
   auth: 'guest',
-  components: {},
+  components: {LangSwitcher},
   mixins: [validationMixin],
   data() {
     return {
@@ -92,7 +98,7 @@ export default {
         name: null,
         email: null,
         password: null,
-        locale: 'en'
+        locale: this.$i18n.locale
       },
       timeout_id: null,
       success: false,
@@ -215,6 +221,10 @@ export default {
   top: 0;
   right: 0;
   left: 0;
+}
+
+.md-card-actions.md-alignment-right{
+  justify-content: space-between;
 }
 
 .form-wrapper {
