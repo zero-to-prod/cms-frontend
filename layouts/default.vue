@@ -8,15 +8,16 @@ import NavbarTop from '~/components/master/Navbars/NavbarMain'
 
 export default {
   name: 'default-layout',
+  middleware: 'locale',
   components: {
     NavbarTop
   },
-  data () {
+  data() {
     return {
       title: process.env.APP_TITLE
     }
   },
-  head () {
+  head() {
     return {
       title: process.env.APP_TITLE,
       meta: []
