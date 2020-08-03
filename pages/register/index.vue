@@ -125,7 +125,7 @@
         }, 1000)
       },
       isEmailUnique() {
-        if (this.is_valid_email(this.form.email)) {
+        if (this.$is_valid_email(this.form.email)) {
           return new Promise((resolve, reject) => {
             this.$axios.$post(this.route_api_users_actions_is_email_unique, {
               email: this.form.email

@@ -10,7 +10,7 @@
         </h1>
         <p>
           <span class="md-caption">{{ $t('Last_login') }}: {{
-              date_long($store.state.user.last_login.created_at)
+              $date_long($store.state.user.last_login.created_at, $i18n.locale)
             }}</span>
         </p>
       </header>

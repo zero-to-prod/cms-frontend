@@ -8,7 +8,7 @@
 
     <md-table-row slot="md-table-row" slot-scope="{ item }">
       <md-table-cell :md-label="$t('Event')" md-sort-by="login">{{ login_to_string(item.login) }}</md-table-cell>
-      <md-table-cell :md-label="$t('Time')" md-sort-by="created_at">{{ date_long(item.created_at) }}</md-table-cell>
+      <md-table-cell :md-label="$t('Time')" md-sort-by="created_at">{{ $date_long(item.created_at, $i18n.locale) }}</md-table-cell>
       <md-table-cell :md-label="$t('IP_Address')" md-sort-by="ip_address">{{ item.ip_address }}</md-table-cell>
       <md-table-cell :md-label="$t('User_Agent')" md-sort-by="ip_address" :title="item.user_agent">{{ $ellipsis(item.user_agent, 20)}}</md-table-cell>
     </md-table-row>

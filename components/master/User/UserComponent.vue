@@ -4,7 +4,7 @@
     <md-list-item>
       <md-icon class="md-primary">
         <md-avatar class="md-avatar-icon md-accent md-small">
-          <md-ripple>{{ user_name_abbreviation($store.state.user.index.name) }}</md-ripple>
+          <md-ripple>{{ $user_name_abbreviation($store.state.user.index.name) }}</md-ripple>
         </md-avatar>
       </md-icon>
       <div class="md-list-item-text">
@@ -44,7 +44,7 @@
         <md-calendar></md-calendar>
       </md-icon>
       <div class="md-list-item-text">
-        <span>{{ date_long($store.state.user.index.created_at) }}</span>
+        <span>{{ $date_long($store.state.user.index.created_at, $i18n.locale) }}</span>
         <span>{{ $t('Created_at') }}</span>
       </div>
     </md-list-item>
@@ -53,7 +53,7 @@
         <md-calendar></md-calendar>
       </md-icon>
       <div class="md-list-item-text">
-        <span>{{ date_long($store.state.user.index.updated_at) }}</span>
+        <span>{{ $date_long($store.state.user.index.updated_at, $i18n.locale) }}</span>
         <span>{{ $t('Updated_at') }}</span>
       </div>
     </md-list-item>

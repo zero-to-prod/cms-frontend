@@ -38,11 +38,12 @@ export default {
   ],
   plugins: [
     '~/plugins/master/authentication',
+    '~/plugins/master/date_long',
     '~/plugins/master/deserialize-json-api',
     '~/plugins/master/ellipsis',
     '~/plugins/master/env',
-    '~/plugins/master/functions',
     '~/plugins/master/global-components',
+    '~/plugins/master/is_valid_email',
     '~/plugins/master/laravel-echo',
     '~plugins/master/mdi-js',
     '~plugins/master/requests',
