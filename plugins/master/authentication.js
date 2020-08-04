@@ -14,6 +14,7 @@ Vue.mixin({
             password: password
           }
         })
+        await this.$router.push(this.switchLocalePath(response.user.locale))
         this.$store.submit(false)
         this.sending = false
       }
@@ -24,13 +25,12 @@ Vue.mixin({
     },
     async logout () {
       await this.$nuxt.$auth.logout()
-      this.$router.push('/login')
     },
     getUser () {
       return new Promise((resolve, reject) => {
         this.$axios.$get(this.route_api_user).then(response => {
           this.$auth.setUser(response)
-          this.$i18n.locale = this.$auth.user.data.user.locale;
+          this.setLocale(response.user.locale);
         }).catch(onerror => {
         })
       })

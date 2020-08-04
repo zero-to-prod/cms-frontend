@@ -92,6 +92,12 @@ export default {
     middleware: ['auth']
   },
   auth: {
+    redirect: {
+      // login: '/login',
+      // logout: '/',
+      // callback: '/login',
+      home: '/dashboard'
+    },
     watchLoggedIn: true,
     strategies: {
       local: {
