@@ -32,7 +32,7 @@
           </md-list-item>
           <md-list-item md-expand :md-expanded.sync="expandAdmin">
             <md-telescope class="md-icon"/>
-            <span class="md-list-item-text"v-html="$t('Administrator')"/>
+            <span class="md-list-item-text" v-html="$t('Administrator')"/>
             <md-list slot="md-expand">
               <md-list-item>
                 <a :href="r_horizon_dashboard_url" target="_blank">
@@ -80,7 +80,7 @@ export default {
     LangSwitcher,
     LaravelHorizon
   },
-  data () {
+  data() {
     return {
       menuVisible: false,
       expandAdmin: false,
@@ -105,7 +105,7 @@ export default {
     }
   },
   methods: {
-    toggleMenu () {
+    toggleMenu() {
       this.menuVisible = !this.menuVisible
     },
   }

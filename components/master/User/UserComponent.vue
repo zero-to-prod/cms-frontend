@@ -4,7 +4,7 @@
     <md-list-item>
       <md-icon class="md-primary">
         <md-avatar class="md-avatar-icon md-accent md-small">
-          <md-ripple>{{ $user_name_abbreviation($store.state.user.index.name) }}</md-ripple>
+          <md-ripple>{{ user_name_abbreviation }}</md-ripple>
         </md-avatar>
       </md-icon>
       <div class="md-list-item-text">
@@ -33,8 +33,8 @@
                   :value="locale.code"
                   :id="locale.code"
                   v-bind:key="locale.name"
-                  @change="updateLocale(locale.code)"
-                  >{{ locale.name }}
+                  @change="updateLocale(locale.code);$router.push(switchLocalePath(locale.code))"
+                  >{{locale.name}}
         </md-radio>
       </div>
     </md-list-item>
@@ -82,6 +82,9 @@ export default {
     },
     url_user () {
       return this.$store.state.route_api.user.index
+    },
+    user_name_abbreviation() {
+      return this.$user_name_abbreviation(this.$store.state.user.index.name)
     }
   },
   methods: {

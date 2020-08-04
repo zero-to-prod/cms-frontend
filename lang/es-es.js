@@ -31,6 +31,7 @@ export default {
   Searching_the_database: 'Buscando en la base de datos...',
   Sign_into_your_account: 'Iniciar sesión en su cuenta',
   Success: 'Éxito',
+  Switch: 'Cambiar',
   Time: 'Hora',
   Updated_at: 'Actualizado en',
   Users: 'Los usuarios',

@@ -32,6 +32,7 @@ export default {
   Searching_the_database: 'Searching the database...',
   Sign_into_your_account: 'Sign into your account',
   Success: 'Success',
+  Switch: 'Switch',
   Time: 'Time',
   Updated_at: 'Updated at',
   User_Agent: 'User Agent',
