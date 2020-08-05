@@ -8,7 +8,7 @@
         </div>
         <div class="md-accent sub-title-wrapper">
           <span v-html="$t('Create_your_account')"/>
-          <nuxt-link :to="r_login" v-html="$t('Login')"/>
+          <nuxt-link :to="r(r_login)" v-html="$t('Login')"/>
         </div>
       </md-card-header>
       <md-card-content>
@@ -66,7 +66,7 @@
     </md-card>
     <md-snackbar :md-active.sync="finished" :md-duration="5000000000" md-persistent>
       <span v-html="message"/>
-      <nuxt-link :to="r_login" v-html="$t('Login')"/>
+      <nuxt-link :to="r(r_login)" v-html="$t('Login')"/>
     </md-snackbar>
     <md-snackbar :md-active.sync="email_is_unavailable" :md-duration="5000000000" md-persistent>
       <span v-html="$t('Email_already_registered')"/>
@@ -77,7 +77,7 @@
         <p>{{ $t('Account_created') }}: {{ form.email }}</p>
       </md-dialog-content>
       <md-dialog-actions>
-        <md-button class="md-primary button" :to="r_login" @click="success = false">
+        <md-button class="md-primary button" :to="r(r_login)" @click="success = false">
           {{ $t('Login') }}
         </md-button>
       </md-dialog-actions>

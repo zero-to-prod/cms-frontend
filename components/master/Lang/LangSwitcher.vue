@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     onChange (event) {
-      this.$router.replace(this.switchLocalePath(this.selectedValue))
+      this.$router.push(this.switchLocalePath(this.selectedValue))
     }
   }
 }

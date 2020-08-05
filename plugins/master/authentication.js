@@ -15,7 +15,7 @@ Vue.mixin({
           }
         })
         await this.$router.push(this.switchLocalePath(response.user.locale))
-        this.$store.submit(false)
+        await this.$store.submit(false)
         this.sending = false
       }
       catch (err) {
@@ -25,15 +25,11 @@ Vue.mixin({
     },
     async logout () {
       await this.$nuxt.$auth.logout()
+      await this.$router.push(this.r_login)
     },
-    getUser () {
-      return new Promise((resolve, reject) => {
-        this.$axios.$get(this.route_api_user).then(response => {
-          this.$auth.setUser(response)
-          this.setLocale(response.user.locale);
-        }).catch(onerror => {
-        })
-      })
+    async getUser() {
+      response = await this.$axios.$get(this.route_api_user)
+      await this.$auth.setUser(response)
     }
   }
 })

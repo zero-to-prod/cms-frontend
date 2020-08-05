@@ -1,10 +1,10 @@
 <template>
   <div>
     <h1>Home Page</h1>
-    <nuxt-link :to="r_dashboard" v-html="$t('Dashboard')"/>
+    <nuxt-link :to="r(r_dashboard)" v-html="$t('Dashboard')"/>
     <br/>
-    <nuxt-link :to="r_login" v-html="$t('Login')"/>
-    <nuxt-link :to="r_register" v-html="$t('Register')"/>
+    <nuxt-link :to="r(r_login)" v-html="$t('Login')"/>
+    <nuxt-link :to="r(r_register)" v-html="$t('Register')"/>
   </div>
 </template>
 <script>

@@ -3,25 +3,25 @@ import Vue from 'vue'
 Vue.mixin({
   computed: {
     r_user () {
-      return this.r('/user')
+      return '/user'
     },
     r_auth_log () {
-      return this.r('/auth_log/')
+      return '/auth_log/'
     },
     r_index () {
-      return this.r('/')
+      return '/'
     },
     r_dashboard () {
-      return this.r('/dashboard/')
+      return '/dashboard/'
     },
     r_home () {
-      return this.r('/home/')
+      return '/home/'
     },
     r_horizon_dashboard_url () {
       return this.API_SERVER_URL + '/horizon/dashboard'
     },
     r_login () {
-      return this.r('/login/')
+      return '/login/'
     },
     r_register () {
       return '/register/'
@@ -30,7 +30,7 @@ Vue.mixin({
       return this.API_SERVER_URL + '/telescope/dashboard'
     },
     r_users () {
-      return this.r('/user/')
+      return '/user/'
     }
   },
   methods: {

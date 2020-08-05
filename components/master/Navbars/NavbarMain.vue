@@ -7,26 +7,26 @@
         </md-button>
         <span class="md-title" v-html="APP_TITLE"/>
         <div class="md-toolbar-section-end">
-          <nuxt-link :to="r_user">
+          <nuxt-link :to="r(r_user)">
             <md-account-circle class="user"/>
           </nuxt-link>
         </div>
       </md-app-toolbar>
       <md-app-drawer :md-active.sync="menuVisible" md-permanent="clipped">
         <md-list :md-expand-single="true">
-          <md-list-item :to="r_dashboard">
+          <md-list-item :to="r(r_dashboard)">
             <md-view-dashboard class="md-icon"/>
             <span class="md-list-item-text" v-html="$t('Dashboard')"/>
           </md-list-item>
-          <md-list-item :to="r_users" exact>
+          <md-list-item :to="r(r_users)" exact>
             <md-account-multiple class="md-icon"/>
             <span class="md-list-item-text" v-html="$t('Users')"/>
           </md-list-item>
-          <md-list-item class="logout" v-if="$auth.loggedIn" :to="r_login" @click="logout()">
+          <md-list-item class="logout" v-if="$auth.loggedIn" :to="r(r_login)" @click="logout()">
             <md-logout class="md-icon"/>
             <span class="md-list-item-text" v-html="$t('Logout')"/>
           </md-list-item>
-          <md-list-item v-else :to="r_login">
+          <md-list-item v-else :to="r(r_login)">
             <md-login class="md-icon"/>
             <span class="md-list-item-text" v-html="$t('Login')"/>
           </md-list-item>
@@ -44,7 +44,7 @@
                   <span class="md-list-item-text" v-html="'Telescope'"/>
                 </a>
               </md-list-item>
-              <md-list-item :to="r_auth_log">
+              <md-list-item :to="r(r_auth_log)">
                 <span class="md-list-item-text" v-html="$t('Authentication_Log')"/>
               </md-list-item>
             </md-list>

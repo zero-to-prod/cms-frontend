@@ -9,7 +9,7 @@
         <div class="md-accent sub-title-wrapper">
           <span v-html="$t('Sign_into_your_account')"/>
           <span>
-            <nuxt-link :to="r_register" v-html="$t('Register')"/>
+            <nuxt-link :to="r(r_register)" v-html="$t('Register')"/>
           </span>
         </div>
       </md-card-header>
