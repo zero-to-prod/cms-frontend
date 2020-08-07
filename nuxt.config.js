@@ -108,7 +108,7 @@ export default {
             propertyName: 'access_token'
           },
           logout: { url: '/logout', method: 'post' },
-          user: { url: '/user', method: 'get', propertyName: 'data' }
+          user: { url: '/user', method: 'post', propertyName: 'data' }
         },
         autoFetchUser: true
       }
