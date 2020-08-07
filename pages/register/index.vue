@@ -176,7 +176,7 @@ export default {
           'name': this.form.name,
           'email': this.form.email,
           'password': this.form.password,
-          'locale_default': this.form.locale
+          'user_locale': this.form.locale
         }).then(response => {
           this.sending = false
           this.success = true
