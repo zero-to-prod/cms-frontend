@@ -41,6 +41,13 @@ export default {
       }
       return this.$t('Logout')
     },
+    get(){
+      this.$axios.post('/auth-log-test',{
+        response: {
+          auth_log: {}
+        }
+      })
+    }
   },
   created() {
   },
