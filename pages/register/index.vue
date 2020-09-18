@@ -70,8 +70,7 @@
     </md-snackbar>
     <md-snackbar :md-active.sync="email_is_unavailable" :md-duration="5000000000" md-persistent>
       <span v-html="$t('Email_already_registered')"/>
-    </md-snackbar>
-    <md-dialog :md-active.sync="success">
+    </md-snackbar><md-dialog :md-active.sync="success">
       <md-dialog-title>{{ $t('Success') }}</md-dialog-title>
       <md-dialog-content>
         <p>{{ $t('Account_created') }}: {{ form.email }}</p>
